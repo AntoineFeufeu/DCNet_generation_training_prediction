@@ -1,0 +1,17 @@
+name = 0050
+stockage_data_name =./ML-DATA-NEW/0050/
+
+thickness = 1.01
+vp_middle = 3450.0
+layer_middle = 15
+f0 = 80.0
+burst_band_width = 0.0
+vpmin = 10
+vpmax = 1600
+fmin = 0
+fmax = 240
+dt = 3e-05
+T = 0.4
+image_dim_x = 256
+image_dim_y = 512
+nstep_output_receiver = 10

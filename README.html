@@ -1,0 +1,277 @@
+<h1 id="dispersion_curves">Dispersion_Curves</h1>
+<p>This project is within my internship at OMP, Toulouse. The purpose of
+this subject is to find a machine learning/deep learning method to
+extract dispersion curves from dispersion images, which is especially
+important for inversion processus to study underground structure. The
+achitecture of our neural net is composed of 2 U-nets in parallel, that
+share a commun part in the encoder. In this project, you have codes to
+create the database and train the model.</p>
+<p>├── <strong>Code_generation_database</strong>: Folder which contains
+scripts to create a new sample<br />
+│   ├── <strong>Test_src</strong>: virgin parameter files for SPECFEM2D
+and CPS. Do not change them except if you know what you are doing<br />
+│   ├── <strong>alleger_XX.py</strong>: Erases receiver’s output files
+in the horizontal direction<br />
+│   ├── <strong>automatisation_generation.py</strong>: Main code to
+generate a sample<br />
+│   ├── <strong>automatisation_generation_nrec_inferieur.py</strong>:
+Used to create a new sample with another one, by only changing the
+number of receivers used to make the dispersion image<br />
+│   ├── <strong>dispersion.py</strong>: Makes the dispersion matrix,
+which is the input of the model.<br />
+│   ├── <strong>ecriture_totale.py</strong>: Codes that automatically
+change parameter files to create the simulation you want<br />
+│   ├── <strong>generation_automatique.py</strong>: Allows processing
+several samples<br />
+│   ├── <strong>nombre_mode.py</strong>: Creates an embedding and
+segmentation image with the number of modes you want, to train the model
+with the great number of modes<br />
+│   ├── <strong>nombre_mode_fast.py</strong>: Creates an embedding and
+segmentation image with the number of modes you want. Faster but needs
+to have the 6 modes version already created to run.<br />
+│   ├── <strong>run_specfem.sh</strong>: The bash used to launch
+specfem2d. Do not modify it except if you know what you are doing<br />
+│   ├── <strong>segmentation-embedding.py</strong>: Creates segmentation
+and embedding image, initially with 6 modes, which are the outputs of
+the model<br />
+│   ├── <strong>sortir_bon_mode.py</strong>: Change in the Data folder,
+for each sample, the number of modes that the model will use. The
+segmentation and embedding matrix with the number of modes you wants
+need to be created before with nombre_mode.py or nombre_mode_fast.py
+codes.<br />
+│   └── <strong>superposition_CPS_specfem.py</strong>: Creates an image
+of the dispersion image superposed with CPS predictions.<br />
+├── <strong>Code_semi_supervised_learning</strong>: Folder which
+contains shortcodes to simplify semi-supervised learning<br />
+│   ├── <strong>DC_net_to_ML_data.py</strong>: Put predictions on the
+database<br />
+│   ├── <strong>afficher_curve.py</strong>: Displays dispersion curves
+that have been predicted<br />
+│   └── <strong>trier_predictions.py</strong>: Manual assisted sorting
+to only choose predictions that seem to be correct<br />
+├── <strong>Code_traitement_database</strong>: Folder which contains
+shortcodes to modify or check the database<br />
+│   ├── <strong>Output_to_output_data.py</strong>: Put all the output
+files in a different folder than the database, to lighten it<br />
+│   ├── <strong>alleger_XX_int.py</strong>: Erases receiver’s output
+files in the horizontal direction, for several samples. Possible to use
+when their names are int.<br />
+│   ├── <strong>bon_nombre.py</strong>: Changes sample’s folder names in
+a database to have samples folder names from 1 to number_of_samples, to
+train greatly.<br />
+│   ├── <strong>decalage_numero.py</strong>: Shifts the sample’s folder
+names<br />
+│   ├── <strong>enlever_erreur_cps.py</strong>: Find samples where CPS
+had a bug, and erase these sample folders<br />
+│   ├── <strong>enlever_mode.py</strong>: Erase segmentation and
+embedding images with several modes on them which is no longer
+useful<br />
+│   ├── <strong>extraire_vp_vs.py</strong>: Creates an image to
+visualize vp and vs apportionments in the soil you generated.<br />
+│   ├── <strong>generer_disp_jpeg.py</strong>: Creates a dispersion
+image<br />
+│   ├── <strong>regarder_data.py</strong>: Allows looking at some
+dispersion, embedding, and segmentation images of the database<br />
+│   ├── <strong>verifier_data.py</strong>: Checks if each sample in the
+database has a dispersion matrix, a segmentation matrix, and an
+embedding one.<br />
+│   └── <strong>visionner.py</strong>: Allows looking at some receivers
+vertical outputs of a sample.<br />
+├── <strong>specfem2d</strong>: SPECFEM program folder<br />
+├── <strong>PROGRAMS.330</strong>: CPS program folder<br />
+├── <strong>DCNet_output</strong>: The folder where all the predictions
+are stocked<br />
+├── <strong>ML_DATA</strong>: The folder to stock all the database<br />
+├── <strong>Feed_Data.py</strong>: help to feed data into a model for
+training<br />
+├── <strong>generate_predict.py</strong>: Used to generate predictions
+(the one with the segmentation clustering) for several samples<br />
+├── <strong>loss.py</strong>: defining loss function for the model<br />
+├── <strong>predict.py</strong>: using model to predict<br />
+├── <strong>predict_with_fv.py</strong>: using the model to predict
+(adding f and v in DBSCAN)<br />
+├── <strong>predict_with_seg_clusters.py</strong>: using the model to
+predict (adding segmentation clustering in DBSCAN)<br />
+├── <strong>requirements.txt</strong>: packages/libraries necessary for
+our project<br />
+├── <strong>structure.py</strong>: defining the architecture of the
+neural net<br />
+├── <strong>train.py</strong>: training model<br />
+└── <strong>train_validate_test_split.py</strong>: spliting
+train-test-validate, creating 3 file: <strong>test_idx.csv</strong>,
+<strong>train_idx.csv</strong>, <strong>valid_idx.csv</strong></p>
+<h2 id="some-instructions-for-using-files">Some instructions for using
+files:</h2>
+<p>For these files to work correctly, please put on the files in the
+same directory. To use data, please contact me or Mr. Roland Martin
+(OMP) for the directory called <strong>ML_DATA</strong>. Once you have
+this <strong>ML_DATA</strong>, put the folder <strong>ML_DATA</strong>
+in the same directory as all the files above.</p>
+<p>Before working with these files, please unzip
+<strong>checkpoints_best_only.zip</strong> and put it in the same
+directory as all the files above.</p>
+<h3
+id="preliminary-step-set-up-a-virtual-environment-to-work-with-python">Preliminary
+step: set up a virtual environment to work with python</h3>
+<p>Create a virtual environment :<br />
+- with conda :</p>
+<pre><code>conda create --name DCNet python=3.10</code></pre>
+<ul>
+<li>with Python:</li>
+</ul>
+<pre><code>python3 -m venv DCNet</code></pre>
+<p>Notice that the environment here is named DCNet, you can choose a
+name at your convenience.</p>
+<p>To work in this environment, we need to activate it: - with conda
+:</p>
+<pre><code>conda activate DCNet</code></pre>
+<ul>
+<li>with Python:</li>
+</ul>
+<pre><code>source DCNet/bin/activate</code></pre>
+<p>Now this environment is empty. We load packages/libraries necessary
+for our project: - with conda :</p>
+<pre><code>conda install --file requirements.txt</code></pre>
+<ul>
+<li>with Python:</li>
+</ul>
+<pre><code>pip install -r requirements.txt</code></pre>
+<p>When you are in this virtual environment (in other words, the DCNet
+environment is activated), you can work with .py files above. After
+performing all the tasks and you want to quit this environment, type: -
+with conda :</p>
+<pre><code>conda deactivate</code></pre>
+<ul>
+<li>with Python:</li>
+</ul>
+<pre><code>deactivate</code></pre>
+<p>Next, follow the instructions below: ## Build DATA ### Importing CPS
+and specfem2d programs If you have the ML_DATA folder, you can train the
+DCNet model or make predictions on this dataset. However, this project
+has integrated an automatic way to generate samples, which can be added
+to the dataset or made to be predicted by the model. This part runs only
+in Linux, so if you are in a Windows environment, you can use WSL and if
+you are in an OS environment, you can use a virtual Unix
+environment.</p>
+<p>First, you must download the specfem2d and CPS algorithm in this
+folder to use this feature. For specfem2d, type in the terminal command
+:</p>
+<pre><code>git clone --recursive --branch devel https://github.com/SPECFEM/specfem2d.git</code></pre>
+<p>Go to the specfem2d folder and type :</p>
+<pre><code>./configure FC=gfortran CC=gcc</code></pre>
+<p>If you want to run in parallel, i.e., using more than one processor
+core, then you would type</p>
+<pre><code>./configure FC=gfortran CC=gcc MPIFC=mpif90 --with-mpi</code></pre>
+<p>Finally, after choosing your configuration :</p>
+<pre><code>make</code></pre>
+<p>For CPS, install it in the main folder by following the installation
+process:
+http://www.eas.slu.edu/People/RBHerrmann/ComputerPrograms.html</p>
+<p>You can find in the doc subfolder the complete documentation to
+install these two programs (manual_SPECFEM2D and manual_CPS).</p>
+<p>Finally, you must have two subfolders specfem2d and PROGRAMS.330 in
+your main folder, which each runs correctly.</p>
+<h3 id="generating-data">Generating data</h3>
+<p>The main code for generating data is automatisation-generation.py, in
+the Code_generation_database subfolder. You can find in the doc
+subfolder an explanation of how this code works, and which codes it uses
+to generate the database.</p>
+<p>Warning: if you use the topographic features to make non-flat soils,
+the CPS result will not be accurate because CPS only process flat layers
+model: so you can only use these samples to make predictions on them or
+to make semi-supervised learning, but don’t directly train your model on
+these samples!</p>
+<h2 id="dcnet">DCNet</h2>
+<h3
+id="first-before-training-we-need-to-split-the-train-validate-test.">First,
+before training, we need to split the train-validate-test.</h3>
+<p>We use the file train_validate_test_split.py. In the terminal
+command, type:</p>
+<pre><code>python train_validate_test_split.py --total=5746 --ratio=0.8</code></pre>
+<p>Where: total is the total number of samples, in our case, 5746; ratio
+is the split ratio, by default, it gets 0.8. Notice that:
+<img src="https://render.githubusercontent.com/render/math?math=ratio \in ]0,1["><br />
+By doing this, it will create 3 files: <strong>test_idx.csv,
+train_idx.csv, valid_idx.csv</strong>, that contain indexes of samples
+for testing, training, and validating. In this repository, you do not
+need to do this step as I already upload these 3 files. Another
+important notice is that you just do it only one time before training
+because it will give different results randomly each time. ### For
+training: In the terminal command, type if you want to train your model
+from scratch:</p>
+<pre><code>python train.py --epochs=75 --batch_size=32 --learning_rate=0.0005 --data_dir=./ML_DATA</code></pre>
+<p>In the terminal command, type if you have a pre-trained model:</p>
+<pre><code>python train.py --epochs=5 --batch_size=32 --learning_rate=0.0005 --data_dir=./ML_DATA --weight_dir=./checkpoints_best_only/checkpoint</code></pre>
+<p>In the terminal command, type if you want to train your model in the
+background:</p>
+<pre><code>nohup python train.py --epochs=75 --batch_size=32 --learning_rate=0.0005 --data_dir=./ML_DATA &amp;</code></pre>
+<p>Where: epochs: number of epochs; data_dir: directory containing data;
+weight directory: the directory containing pre-trained weight. #### By
+default: epochs=5, batch_size=32, learning_rate=0.0005,
+data_dir=./ML_DATA, weight_dir=./checkpoints_best_only/checkpoint</p>
+<p>To avoid overfitting, we save only the best model based on its
+performance on validating set. The weight is saved in the directory
+./checkpoints_best_only/checkpoint.</p>
+<p>At the end of the training, it will save a file called
+<strong>loss_train_val.csv</strong> containing the evolution of the loss
+function on the training and validating set. Also, this will generate a
+file called metrics.csv containing the evolution of metrics on training
+and validating sets.<br />
+metrics.csv : - 1er line : segmentation_output_accuracy - 2nd line :
+segmentation_output_dice_coef - 3rd line : segmentation_output_mean_io_u
+- 4th line : embedding_output_accuracy - 5th line :
+val_segmentation_output_accuracy - 6th line :
+val_segmentation_output_dice_coef - 7th line :
+val_segmentation_output_mean_io_u - 8th line :
+val_embedding_output_accuracy - 9th line : segmentation_output_recall -
+10th line : val_segmentation_output_recall - 11th line :
+segmentation_output_precision - 12th line :
+val_segmentation_output_precision</p>
+<h3 id="for-predicting">For predicting:</h3>
+<pre><code>python predict.py --sample=600</code></pre>
+<p>Where the sample is the sample number we want to predict. By typing
+this, the file will perform the following tasks: 1. Showing input
+dispersion image. 2. Showing output of the segmentation branch and at
+the same time saving this in <strong>Segmentation.jpg</strong>. 3.
+Showing output of embedding branch and at the same time saving this in
+<strong>Embedding.jpg</strong>. 4. Showing different modes obtained from
+DBSCAN (normally, we have to wait for seconds for results) and at the
+same time saving this in <strong>groups.jpg</strong>. 5. Showing fitted
+curved found from the maximum peak and at the same time saving this in
+<strong>Fitted_Curves.jpg</strong>. 6. Showing rectified curves after
+using a Gaussian filter and at the same time saving this in
+<strong>Fitted_Curves_Filtered.jpg</strong>. 7. Showing the curves on
+the real scale after rescaling and at the same time saving this in
+<strong>Predicted_Fitted_Curves.jpg</strong>. 8. Showing predicted
+curves superimposed on the initial input dispersion image and at the
+same time saving this in <strong>superimposed.jpg</strong>. 9. Saving
+curves under the form of .csv first column: mode number, 2nd column:
+phase velocity, 3rd column: frequency. The file is named
+<strong>predicted_fv_curves.csv</strong>.</p>
+<p>Noting that all the output files above are saved in folder
+./DCNet_output/number, with the number being the sample number.</p>
+<ul>
+<li>Noting also that numbers smaller than 2600 are solid, between 2601
+and 5480 are a mixture of solid, water, and air, and numbers from 5481
+are karsts.</li>
+</ul>
+<p>Example of prediction with karst :</p>
+<pre><code>python predict.py --sample=5117</code></pre>
+<p>I also implement two other versions of prediction.</p>
+<p>One that uses f and v in addition to the output of the embedding
+branch in DBSCAN. To use this program:</p>
+<pre><code>python predict_with_fv.py --sample=600 --weight_f=0.5 --weight_v=0.5</code></pre>
+<p>By default, weight_f=weight_v=0.5</p>
+<p>One that uses segmentation clustering in addition to the output of
+embedding branches in DBSCAN. To use this program:</p>
+<pre><code>python predict_with_seg_clusters.py --sample=600 --nb_modes_voulu=1 --stockage_data=./ML_DATA/</code></pre>
+<p>Put at nb_modes_voulu the same number of modes as the number used to
+train the neural network.</p>
+<h2
+id="good-links-to-have-an-idea-about-the-metrics-that-i-used-in-my-project">Good
+links to have an idea about the metrics that I used in my project :</h2>
+<ul>
+<li>https://towardsdatascience.com/metrics-to-evaluate-your-semantic-segmentation-model-6bcb99639aa2</li>
+<li>https://ilmonteux.github.io/2019/05/10/segmentation-metrics.html</li>
+<li>https://www.kaggle.com/code/yassinealouini/all-the-segmentation-metrics</li>
+</ul>

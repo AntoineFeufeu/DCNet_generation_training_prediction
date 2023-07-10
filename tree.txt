@@ -1,0 +1,56 @@
+
+├── Code_generation_database
+│   ├── Test_src
+│   │   ├── Par_file
+│   │   ├── SOURCE
+│   │   ├── STATIONS
+│   │   ├── XDmod_28-layers.dep
+│   │   └── interfaces.dat
+│   ├── alleger_XX.py
+│   ├── automatisation_generation.py
+│   ├── automatisation_generation_nrec_inferieur.py
+│   ├── dispersion.py
+│   ├── ecriture_totale.py
+│   ├── generation_automatique.py
+│   ├── nombre_mode.py
+│   ├── nombre_mode_fast.py
+│   ├── run_specfem.sh
+│   ├── segmentation-embedding.py
+│   ├── sortir_bon_mode.py
+│   └── superposition_CPS_specfem.py
+├── Code_semi_supervised_learning
+│   ├── DC_net_to_ML_data.py
+│   ├── afficher_curve.py
+│   └── trier_predictions.py
+├── Code_traitement_database
+│   ├── Output_to_output_data.py
+│   ├── alleger_XX_int.py
+│   ├── bon_nombre.py
+│   ├── decalage_numero.py
+│   ├── enlever_erreur_cps.py
+│   ├── enlever_mode.py
+│   ├── extraire_vp_vs.py
+│   ├── generer_disp_jpeg.py
+│   ├── output_to_output_data.py
+│   ├── regarder_data.py
+│   ├── verifier_data.py
+│   └── visionner.py
+├── specfem2d
+├── PROGRAMS.330
+├── DCNet_output
+├── ML_DATA
+├── Feed_Data.py
+├── README.md
+├── generate_predict.py
+├── loss.py
+├── predict.py
+├── predict_with_fv.py
+├── predict_with_seg_clusters.py
+├── requirements.txt
+├── structure.py
+├── train.py
+└── train_validate_test_split.py
+
+
+
+
