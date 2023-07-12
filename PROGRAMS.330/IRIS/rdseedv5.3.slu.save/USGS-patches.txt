@@ -1,0 +1,446 @@
+--- Ah/ioroutin.c
++++ Ah/ioroutin.c
+@@ -6,3 +6,3 @@
+ #include <stdlib.h>
+-#include <strings.h>
++#include <string.h>
+ #include <sys/ioctl.h>
+@@ -537,15 +537,2 @@
+ 
+-/* acpy(from,to,nbytes) copies nbytes from the array "from" to the
+- *	array "to".
+- */
+-acpy(from,to,nbytes)
+-char	*from;
+-char	*to;
+-unsigned	nbytes;
+-{
+-	while(nbytes--)
+-		*from++ = *to++;
+-	return;
+-}
+-
+ /*
+@@ -1178,3 +1165,3 @@
+ 		return(0);
+-	if (!xdr_long(xdrsp, &ahheadp->record.ndata))
++	if (!xdr_int(xdrsp, &ahheadp->record.ndata))
+ 		return(0);
+--- Decoders/decode_ddl.c
++++ Decoders/decode_ddl.c
+@@ -133,3 +133,3 @@
+  
+-	unsigned int i,j,k,l,p;
++	int i,j,k,l,p;
+ 	char c;
+@@ -785,3 +785,3 @@
+ 			{
+-			decode_int(type30->decoder_key_prim[0]);
++			decode_int((struct prim_struct *)type30->decoder_key_prim[0]);
+ 
+@@ -797,3 +797,3 @@
+ 					{
+-					decode_key_int(type30->decoder_key_prim[1]);
++					decode_key_int((struct prim_struct *)type30->decoder_key_prim[1]);
+ 					seismic_data_ptr -= 1;
+@@ -808,3 +808,3 @@
+ 			{
+-			decode_int(type30->decoder_key_prim[0]);
++			decode_int((struct prim_struct *)type30->decoder_key_prim[0]);
+  
+@@ -820,7 +820,7 @@
+ 					{
+-					decode_int(type30->decoder_key_prim[1]);
++					decode_int((struct prim_struct *)type30->decoder_key_prim[1]);
+ 					mantissa = (int) extract_accum;
+-					decode_int(type30->decoder_key_prim[2]);
++					decode_int((struct prim_struct *)type30->decoder_key_prim[2]);
+ 					exponent = (int) extract_accum;
+-					decode_key_float(type30->decoder_key_prim[3]); 
++					decode_key_float((struct prim_struct *)type30->decoder_key_prim[3]); 
+ 					seismic_data_ptr -= 1;
+@@ -832,5 +832,5 @@
+ 			}
+-		case 50:		/* Compression Family */
++		case 50:	/* Compression Family */
+ 			{
+-			decode_key_cmp1(type30->decoder_key_prim[0]);
++			decode_key_cmp1((struct prim_struct *)type30->decoder_key_prim[0]);
+  
+@@ -841,3 +841,3 @@
+ 				compress_count = 0;
+-				decode_key_cmp2(type30->decoder_key_prim[1]);
++				decode_key_cmp2((struct prim_struct *)type30->decoder_key_prim[1]);
+ 				decode_key_cmp4(type30, nsamples);
+--- Include/ahhead.h
++++ Include/ahhead.h
+@@ -72,3 +72,3 @@
+ 		short		type;	/* data type (int,float,...) 	*/
+-		long		ndata;	/* number of samples		*/
++		int		ndata;	/* number of samples		*/
+ 		float		delta;	/* sampling interval		*/
+--- Include/ddl.h
++++ Include/ddl.h
+@@ -3,3 +3,3 @@
+ 	int num_bytes;
+-	unsigned int *order;
++	int *order;
+ };
+@@ -11,4 +11,4 @@
+ 	int num_order;
+-	unsigned int *order1;
+-	unsigned int *order2;
++	int *order1;
++	int *order2;
+ };
+--- Main/output_ah.c
++++ Main/output_ah.c
+@@ -294,5 +294,5 @@
+ 
+-		sprintf (character, "%-5.5s\0", data_hdr->station);
++		sprintf (character, "%-5.5s", data_hdr->station);
+ 		strncpy (hed.station.code, character, 6);
+-		sprintf (character, "%-5.5s\0", channel);
++		sprintf (character, "%-5.5s", channel);
+ 		strncpy (hed.station.chan, character, 6);
+--- Main/output_b2k.c
++++ Main/output_b2k.c
+@@ -16,3 +16,3 @@
+ #include <sys/param.h>
+-#include <strings.h>
++#include <string.h>
+ 
+--- Main/output_css.c
++++ Main/output_css.c
+@@ -38,3 +38,3 @@
+ 
+-#define STRUPPERCASE(s) { char *p = s; while(*p) *p++ = toupper(*p); }
++#define STRUPPERCASE(s) { char c, *p = s; while ( ( c = *p ) != '\0' ) *p++ = toupper( c ); }
+ 
+--- Main/output_event_info.c
++++ Main/output_event_info.c
+@@ -232,3 +232,3 @@
+ /* ------------------------------------------------------------------------- */
+-char *ddd2yyyymmdd();
++static char *ddd2yyyymmdd( int ddd, int yyyy );
+ 
+@@ -285,12 +285,8 @@
+ 
+-
+-char *ddd2yyyymmdd(ddd, yyyy)
+-int ddd;
+-int yyyy;
+-
++static char *ddd2yyyymmdd( int ddd, int yyyy )
+ {
+-
+-
+         int mon;
+ 
++	yyyymmdd[0] = '\0';
++
+         /* adjust for leap year */
+@@ -301,5 +297,4 @@
+ 		/* always reset as it could be run again on a different year */
+-		days_in_month[29] = 28;
++		days_in_month[2] = 28;
+ 
+- 
+         for (mon = 1; mon < 13; mon++)
+@@ -308,5 +303,3 @@
+                         break;
+- 
+                 ddd -= days_in_month[mon];
+- 
+         }
+@@ -314,10 +307,6 @@
+         if (mon == 13)
+-        {
+                 fprintf(stderr, "Bad day number!\n");
+-                return;
+-        }
+- 
+- 
+-        sprintf(yyyymmdd, "%d/%02d/%02d ", yyyy, mon, ddd);
+- 
++	else
++	        sprintf(yyyymmdd, "%d/%02d/%02d ", yyyy, mon, ddd);
++
+         return yyyymmdd;
+--- Main/output_seed.c
++++ Main/output_seed.c
+@@ -17,3 +17,3 @@
+ #include <stdlib.h>
+-#include <strings.h>
++#include <string.h>
+ #include <sys/types.h>
+--- Main/rdseed.c
++++ Main/rdseed.c
+@@ -2861,4 +2861,4 @@
+ 	FILE *fp;
+-	char buffer[200], *p, *p2;
+-	int i, j, ix;
++	char buffer[200], c, *p;
++	int n;
+ 
+@@ -2872,20 +2872,12 @@
+ 		{
+-			i = get_file_line(buffer, 199, fp);
+-			while (i)
++			while ( TRUE )
+ 			{
+-				p = malloc(i+1);
+-
+-				ix = 0;
+-
+-				while (buffer[ix]) 
+-				{
+-					p[ix++] = toupper(buffer[ix]);
+-				}
+-
+-				p[ix] = '\0';
+-
++				n = get_file_line( buffer, sizeof( buffer ) - 1, fp );
++				if ( n <= 0 )
++					break;
++				p = calloc( n + 1, 1 );
+ 				alias_point[alias_count] = p;
+-
+ 				alias_count++;
+-				i = get_file_line(buffer, 199, fp);
++				while ( ( c = *p ) != '\0' )
++					*p++ = toupper( c );
+ 			}
+--- Main/steim.c
++++ Main/steim.c
+@@ -79,2 +79,12 @@
+ 
++/* [U]BYTE =  8 bits */
++/* [U]WORD = 16 bits */
++/* [U]LONG = 32 bits */
++
++/* See steim.h:      */
++
++/* changed LONG and ULONG to int for 63 compilation
++ *
++ */
++
+ #include <stdio.h>
+@@ -197,3 +207,3 @@
+     printf("- Number_of_blockettes_follow    %d      \n", p_fsdh->Number_of_blockettes_follow	   );
+-    printf("- Time_correction                %ld     \n", p_fsdh->Time_correction		   );
++    printf("- Time_correction                %d      \n", p_fsdh->Time_correction		   );
+     printf("- Beginning_of_data              %hd     \n", p_fsdh->Beginning_of_data		   );
+@@ -213,11 +223,11 @@
+     printf("-------------------------------------------\n");
+-    printf("# of 4:1 = %lu\n", stat[1]);
+-    printf("# of 2:1 = %lu\n", stat[2]);
+-    printf("# of 1:1 = %lu\n", stat[3]);
++    printf("# of 4:1 = %u\n", stat[1]);
++    printf("# of 2:1 = %u\n", stat[2]);
++    printf("# of 1:1 = %u\n", stat[3]);
+ 
+     total_bytes = (stat[1] + stat[2] + stat[3]) * 4 ;
+-    printf(" total bytes = %lu\n", total_bytes ) ;
+-    printf("total deltas = %lu\n", stat[1]*4 + stat[2]*2 + stat[3]) ;
++    printf(" total bytes = %u\n", total_bytes ) ;
++    printf("total deltas = %u\n", stat[1]*4 + stat[2]*2 + stat[3]) ;
+     printf("* comp ratio = %f : 1.0\n", (double)((double)Number_of_samples)/((double)total_bytes/4) ) ;
+-    printf("Slots tossed = %lu\n", tossed ) ;
++    printf("Slots tossed = %u\n", tossed ) ;
+     printf(" Ideal ratio = %f : 1.0\n", (double)((double)Number_of_samples)/((double)(total_bytes-tossed/4)/4) ) ;
+--- Parsers/parse_key.c
++++ Parsers/parse_key.c
+@@ -177,3 +177,3 @@
+ 		if (!ignore)
+-			prim = (struct prim_struct *)malloc(sizeof(struct prim_struct));
++			prim = (struct prim_struct *) calloc(1, sizeof(struct prim_struct));
+ 		if (prim == NULL)
+@@ -184,4 +184,2 @@
+ 
+-		memset((char *)prim, 0, sizeof(struct prim_struct));
+-
+ 		prim->type = *p;
+@@ -199,3 +197,3 @@
+ 			}
+-			prim->data.ext_byte.order = (unsigned int *) calloc(prim->data.ext_byte.num_bytes, sizeof(int));
++			prim->data.ext_byte.order = (int *) calloc(prim->data.ext_byte.num_bytes, sizeof(int));
+ 			for (i=0; i<prim->data.ext_byte.num_bytes; i++)
+@@ -203,4 +201,10 @@
+ 			i = 0;
+-			while (NULL != (p=get_int(p, &(prim->data.ext_byte.order[i]), ',')))
++			while (NULL != (p=get_int(p, &j, ',')))
+ 			{
++				if (j < 0)
++				{
++					printf("ERROR in W primitive, Decoder Key %s\n", input);
++					return(NULL);
++				}
++				prim->data.ext_byte.order[i] = j;
+ 				i++;
+@@ -233,3 +237,11 @@
+ 			while (NULL != (p=get_pair(p,	&j, &k, '-', ','))) 
++			{
++				if ( (j == -32768) || (k == -32768) ||
++				     (j < 0) || (k < -1) )
++				{
++					printf("ERROR in B Decoder Key %s\n", input);
++					return(NULL);
++				}
+ 				i++;
++			}
+ 			prim->data.ext_bits.num_order = i;
+@@ -238,4 +250,4 @@
+ 			{
+-				prim->data.ext_bits.order1 = (unsigned int *) calloc(i, sizeof(int));
+-				prim->data.ext_bits.order2 = (unsigned int *) calloc(i, sizeof(int));
++				prim->data.ext_bits.order1 = (int *) calloc(i, sizeof(int));
++				prim->data.ext_bits.order2 = (int *) calloc(i, sizeof(int));
+  
+@@ -244,6 +256,5 @@
+ 				{
+-					p=get_pair(p, 
+-					&(prim->data.ext_bits.order1[i]), 
+-					&(prim->data.ext_bits.order2[i]), 
+-					'-', ',');
++					p=get_pair(p,	&j, &k, '-', ',');
++					prim->data.ext_bits.order1[i] = j;
++					prim->data.ext_bits.order2[i] = k;
+ 				}
+--- Utilities/log_errors.c
++++ Utilities/log_errors.c
+@@ -31,3 +31,2 @@
+ #include <stdio.h>
+-#include <strings.h>
+ #include <string.h>
+--- Utilities/strlst.c
++++ Utilities/strlst.c
+@@ -14,20 +14,27 @@
+ 
+-int trim(s)
+-char *s;
++/* Trim leading and trailing whitespace from string s (in place) */
+ 
+-{
+-        char *c;
+- 
+-        while (isspace(*(s + strlen(s) - 1)))    
+-                *(s + strlen(s) - 1) = '\0';  
+- 
+-        c = s; 
+- 
+-        while (*c == ' ' && (*c != '\0'))
+-                *c++ = *(c + 1);    
+- 
+-        strcpy(s, c); 
+- 
+-	return 1;
++void trim( char *s ) {
++
++  char *c;
++
++
++  if ( s != NULL )
++  {
++
++    /* Right trim */
++    for ( c = s; *c != '\0'; ++c ) {}		/* c->EOS                    */
++    for ( --c; c >= s; --c )			/* c->last non-whitespace    */
++      if ( !isspace( *c ) )			/*   character in s, else    */
++        break;					/*   s-1 if s is "" or all   */
++        					/*   whitespace              */
++    *(++c) = '\0';				/* Set EOS at *(c+1)         */
++
++    /* Left trim */
++    for ( c = s; isspace( *c ); ++c ) {}	/* c->first non-whitespace   */
++    						/*   character in s          */
++    if ( c != s )				/* If there were any...      */
++      while ( ( *s++ = *c++ ) != '\0' ) {}	/*   ...slide s to the left  */
+ 
++  }
+ }
+--- Decoders/convert_seedhdr.c
++++ Decoders/convert_seedhdr.c
+@@ -58,3 +58,2 @@
+ 	int i;	/* counter */
+-	char temp_char[5+1];	/* for character transfer */
+ 	double sample_rate;	/* sample rate calculation */
+@@ -68,30 +67,24 @@
+ 	/* copy, strip trailing blanks from text strings, put in structure */
++	/* all of these fields are fixed-length, left justified, alpha-numeric characters only, blank padded */
++
+ 	/* copy station name */
+-	for (i = 0; i < 5; i++) temp_char[i] = input_data_hdr->station[i];
+-	temp_char[5] = '\0';
+-	for (i = 4; temp_char[i] == ' '; i--) temp_char[i] = '\0';
+-	sprintf (data_hdr->station, "%s", temp_char);
++	for ( i = 0; ( i < sizeof( input_data_hdr->station ) ) && ( input_data_hdr->station[i] != ' ' ); ++i )
++		data_hdr->station[i] = input_data_hdr->station[i];
++	data_hdr->station[i] = '\0';
+ 
+ 	/* copy location code */
+-	for (i = 0; i < 2; i++) temp_char[i] = input_data_hdr->location[i];
+-	temp_char[2] = '\0';
+-	for (i = 1; temp_char[i] == ' '; i--) temp_char[i] = '\0';
+-	sprintf (data_hdr->location, "%s", temp_char);
++	for ( i = 0; ( i < sizeof( input_data_hdr->location ) ) && ( input_data_hdr->location[i] != ' ' ); ++i )
++		data_hdr->location[i] = input_data_hdr->location[i];
++	data_hdr->location[i] = '\0';
+ 
+ 	/* copy channel name */
+-	for (i = 0; i < 3; i++) temp_char[i] = input_data_hdr->channel[i];
+-	temp_char[3] = '\0';
+-	for (i = 2; temp_char[i] == ' '; i--) temp_char[i] = '\0';
+-	sprintf (data_hdr->channel, "%s", temp_char);
++	for ( i = 0; ( i < sizeof( input_data_hdr->channel ) ) && ( input_data_hdr->channel[i] != ' ' ); ++i )
++		data_hdr->channel[i] = input_data_hdr->channel[i];
++	data_hdr->channel[i] = '\0';
+ 
+ 	/* copy network name */
+-    
+-	for (i = 0; i < 2; i++) temp_char[i] = input_data_hdr->network[i];
+-    		temp_char[2] = '\0';
+-
+-    	for (i = 1; temp_char[i] == ' '; i--) 
+-		temp_char[i] = '\0';
++	for ( i = 0; ( i < sizeof( input_data_hdr->network ) ) && ( input_data_hdr->network[i] != ' ' ); ++i )
++		data_hdr->network[i] = input_data_hdr->network[i];
++	data_hdr->network[i] = '\0';
+ 
+-    	sprintf (data_hdr->network, "%s", temp_char);
+- 
+ 	/* copy time information */
+ 
+--- Decoders/process_data.c
++++ Decoders/process_data.c
+@@ -262,3 +262,3 @@
+ 		memcpy(network_code, input_data_hdr->network, 2);
+-		network_code[3] = 0;
++		network_code[2] = '\0';
+ 			
+@@ -1124,3 +1124,5 @@
+ 	strncpy(stn, s, 10);
++	stn[9] = '\0';
+ 	strncpy(net, n, 10);
++	stn[9] = '\0';
+ 
+@@ -1183,3 +1185,5 @@
+         strncpy(stn, s, 10);
++	stn[9] = '\0';
+         strncpy(net, n, 10);
++	net[9] = '\0';
+ 
+@@ -1246,3 +1250,6 @@
+ 
+-	strcpy(loc, l);
++	strncpy(loc, l, 3);
++	loc[2] = '\0';
++
++	trim(loc);
+ 
+@@ -1327,3 +1334,5 @@
+         strncpy(stn, s, 10);
++	stn[9] = '\0';
+         strncpy(net, n, 10);
++	net[9] = '\0';
+ 

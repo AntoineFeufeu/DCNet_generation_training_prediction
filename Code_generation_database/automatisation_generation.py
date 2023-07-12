@@ -25,7 +25,8 @@ def read_args():
     parser.add_argument("--nstep_output_receiver",
                         default=10,
                         type=int,
-                        help="Number of steps between two measures for the receivers")        
+                        help="Number of steps between two measures for the receivers")   
+         
     parser.add_argument("--nb_layers",
                         default=28,
                         type = int,
@@ -44,7 +45,7 @@ def read_args():
     parser.add_argument("--thickness",
                         default=1.0,
                         type=float,
-                        help="ONLY FOR DEFAULT MODEL : thickness of the layers (1.01 -> 1.05)")
+                        help="ONLY FOR DEFAULT MODEL : thickness of the layers (1.0 -> 1.05)")
     parser.add_argument("--vp_middle",
                         default=3532,
                         type = float,
@@ -55,7 +56,7 @@ def read_args():
                         help="ONLY FOR DEFAULT MODEL : layer of the break (11->15)")
     
     #################################################################################################################
-    
+
     #### PARAMETERS FOR CUSTOM MODEL. From the highest layer to the lowest layer. Respect the length = nb_layers ####
     parser.add_argument("--custom_thickness",
                         default=[3,5,6,4,5,4,5.5,5,5],
@@ -82,7 +83,7 @@ def read_args():
     parser.add_argument("--f0",
                         default=80.,
                         type = float,
-                        help="most present frequency")
+                        help="most present frequency (Hz)")
     parser.add_argument("--burst_band_width",
                         default=0.,
                         type = float,
@@ -125,7 +126,7 @@ def read_args():
                         help="image_dim_y")
     
     parser.add_argument("--topographie",
-                        default=False,
+                        default=True,
                         type = bool,
                         help="Do you want to input a topgraphie in your model are not")
     parser.add_argument("--linear_decay",
@@ -145,19 +146,19 @@ def read_args():
                         type = float,
                         help="proportion_of_liquid_material_in_karst : %_gaz = 1 - %_sol - %_liq / MAX 1 MIN 0")
     parser.add_argument("--nxbeg_water",
-                        default=1,
+                        default=20,
                         type = int,
                         help="number of horizontal meshes at the beginning of the water cavity")
     parser.add_argument("--nxend_water",
-                        default=90,
+                        default=45,
                         type = int,
                         help="number of horizontal meshes at the end of the water cavity")
     parser.add_argument("--layerbeg_water",
-                        default=15,
+                        default=2,
                         type = int,
                         help="layer at the beginning of the water cavity")
     parser.add_argument("--layerend_water",
-                        default=17,
+                        default=4,
                         type = int,
                         help="layer at the end of the water cavity")
     
@@ -177,11 +178,12 @@ def read_args():
                         default="./Code_traitement_database/")
     parser.add_argument("--path_CPS",
                         default="/PROGRAMS.330/bin")
-    
     parser.add_argument("--Stockage_data",
                     default="./ML_DATA/")
+    
+    
     parser.add_argument("--name",
-                    default="10001",
+                    default="test_custom_topo_eau",
                     help="Name of the sample")
     args = parser.parse_args()
     return args
@@ -273,7 +275,7 @@ def main(args):
         delta= [0.]
         for j in range (13) :
             delta.append(abs(delta[-1]+2*(rd.random()-0.5)))
-    #delta = [-1.3501874999998336, -1.3071874999998272, -1.3501874999998336, -1.3621874999998909, -1.4311874999998508, -1.3841874999998254, -1.4741874999998572, -1.3991874999998117, -1.4551874999998518, -1.508187499999849, -1.5381874999998217, -1.5871874999999136, -1.6521874999998545, -1.7641874999998208, -1.8471874999999045, -2.0591874999998936, -1.897187499999859, -2.14318749999984, -2.2941874999999072, -2.1861874999998463, -2.0251874999999018, -2.414187499999912, -2.4301874999998745, -2.4381874999999127, -2.1911874999998417, -2.13018749999992, -1.8431874999998854, -1.5821874999999181, -1.4601874999998472, -1.1911874999998417, -1.081187499999828, -0.7711874999998827, -0.61618749999991, -0.5291874999999209, -0.35018749999983356, -0.2101874999998472, 0.07381250000014461, 0.3448125000001028, 0.5938125000001264, 0.6278125000001182, 0.6778125000001864, 0.7888125000001764, 0.9978125000001228, 1.2718125000001237, 1.557812500000182, 1.7748125000001664, 1.9838125000001128, 2.0668125000000828, 2.171812500000101, 2.195812500000102, 2.428812500000163, 2.49481250000008, 2.6908125000001064, 2.6478125000001, 2.637812500000109, 2.6838125000001583, 2.588812500000131, 2.775812500000143, 2.7748125000001664, 2.8558125000001837, 2.984812500000089, 3.1018125000001646, 3.2168125000001737, 3.24481250000008]
+    delta = [-1.3501874999998336, -1.3071874999998272, -1.3501874999998336, -1.3621874999998909, -1.4311874999998508, -1.3841874999998254, -1.4741874999998572, -1.3991874999998117, -1.4551874999998518, -1.508187499999849, -1.5381874999998217, -1.5871874999999136, -1.6521874999998545, -1.7641874999998208, -1.8471874999999045, -2.0591874999998936, -1.897187499999859, -2.14318749999984, -2.2941874999999072, -2.1861874999998463, -2.0251874999999018, -2.414187499999912, -2.4301874999998745, -2.4381874999999127, -2.1911874999998417, -2.13018749999992, -1.8431874999998854, -1.5821874999999181, -1.4601874999998472, -1.1911874999998417, -1.081187499999828, -0.7711874999998827, -0.61618749999991, -0.5291874999999209, -0.35018749999983356, -0.2101874999998472, 0.07381250000014461, 0.3448125000001028, 0.5938125000001264, 0.6278125000001182, 0.6778125000001864, 0.7888125000001764, 0.9978125000001228, 1.2718125000001237, 1.557812500000182, 1.7748125000001664, 1.9838125000001128, 2.0668125000000828, 2.171812500000101, 2.195812500000102, 2.428812500000163, 2.49481250000008, 2.6908125000001064, 2.6478125000001, 2.637812500000109, 2.6838125000001583, 2.588812500000131, 2.775812500000143, 2.7748125000001664, 2.8558125000001837, 2.984812500000089, 3.1018125000001646, 3.2168125000001737, 3.24481250000008]
     stockage_data_name = args.Stockage_data + args.name + "/"
     creation_espaces (stockage_data_name,args.fichier_INPUT_initial)
     ecriture (args.name,args.fichier_emplacement_code,args.nb_layers,args.default_model,args.thickness,args.vp_middle,args.layer_middle,args.nb_mesh_per_layer,args.nxmax,args.f0,args.burst_band_width,args.fmax,args.dt,args.T,args.nstep_output_receiver,args.fichier_INPUT_initial,args.fichier_donnees_specfem,delta,args.linear_decay,args.water_cavity,args.nxbeg_water,args.nxend_water,args.layerbeg_water,args.layerend_water,percent_solid=args.percent_solid,percent_liquid=args.percent_liquid,custom_thickness=args.custom_thickness,custom_vp=args.custom_vp,custom_vs=args.custom_vs,custom_rho=args.custom_rho)

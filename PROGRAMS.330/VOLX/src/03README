@@ -1,0 +1,69 @@
+Program logic for the options
+-> indicates using ssytem to execute support program
+
+
+If tmpsrfi.00 does not exist
+
+	-> shalpre96
+
+id:
+
+0	menu
+
+1	-> srfdis96
+	-> srfdrl96
+	-> srfdrr96
+	-> ttinvdr96
+
+2,3,4	sramat
+	ssamat
+	shamat
+	-> srfinv96
+
+5	iquery
+
+6,10,18,19,28,29,23,13,14,24
+	modls
+11,12,16,17,22,27
+	ssamat
+
+31	ddcut
+
+7	-> srfvph
+	-> ttinvvp
+
+8	-> srfgph - drop
+
+9	modls
+
+30	iquery, ibound
+
+32	fquery, fbound
+33	fquery, fbound
+34	fquery, fbound
+35	iquery, ibound
+36	iquery, ibound
+37	iquery, ibound
+
+38	trmnt
+
+39	-> rm -fr tmpsrfi.*
+40	fquery, fbound
+41	fquery, fbound
+42	fquery, fbound
+43	fquery, fbound
+44	iquery, ibound
+
+45	ddcur
+	shwwtv
+
+47	shwctl
+48	ddcus
+	wcupdt
+49	sjwrfw
+50	chgrfw
+
+
+
+
+

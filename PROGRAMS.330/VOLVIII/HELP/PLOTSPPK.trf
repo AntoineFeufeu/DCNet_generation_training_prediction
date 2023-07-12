@@ -1,0 +1,66 @@
+.de BR
+.in 0
+.in +8n
+.ti -5n
+..
+
+
+.Th PLOTSPPK
+.S2 SUMMARY:
+Interactive spectra pick
+
+.S2 PlotSPPK [options]
+.S2 INPUT
+.BR
+AMplitude          : Plot amplitude spectrum (default)
+.BR
+PHase              : Plot phase spectrum
+.BR
+PErplot [n|OFF]    : Plot n spectra per frame (default off)
+.BR
+OVerlay [ON|OFF]   : Overlay all spectra (default off)
+.BR
+SMooth [ON|OFF]    : Apply 5 point smoothing to amplitude spectrum 
+                     (default off)
+.BR
+XLIn               : X-axis is linear
+.BR
+XLOg               : X-axis is logarithmic (default)
+.BR
+YLIn               : Y-axis is linear
+.BR
+YLOg               : Y-axis is logarithmic (default)
+.BR
+FMIn               : Minimum frequency for plot 
+                     (default: DF for XLOG and 0 for XLIN)
+.BR
+FMAx               : Maximum frequency for plot 
+                     (default: Nyquist)
+.BR
+AMIn               : Minimum spectral amplitude to plot (default:
+                     0 for YLIN  and 0.0001 Amax for YLOG)
+.BR
+AMAx               : Maximum spectral amplitude to plot 
+                     (default: maximum)
+.BR
+Default            : Do not put up a phase menu, turn off marking
+.S2 DESCRIPTION:
+The cursor responds to the following commands:
+.br
+.nf
+-	: compress frequency scale by factor of 2, recenter trace 
+_	: compress frequency scale by factor of 2, recenter trace
++	: expand frequency scale by factor of 2, recenter trace
+=	: expand frequency scale by factor of 2, recenter trace
+(space) : recenter trace
+B	: move to the previous page of traces
+L	: give frequency and amplitude of point beneath cursor
+N	: move to next set of traces
+O 	: return to original trace scaling
+Q	: end interactive trace picking
+X	: Define trace window by entering X two times
+Z       : define frequency range for linear regression to get t*
+.fi
+.S2 "SEE ALSO":
+PLOTSP
+

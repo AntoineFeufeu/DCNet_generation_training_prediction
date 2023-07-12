@@ -1,0 +1,25 @@
+for do_pom and do_mft  make heirarchy of routines
+
+Ensure that mftdsp is not inadvertantly free'd else I get junk
+
+
+main
+	do_page1
+		do_page2
+			do_page3
+				do_page4
+					do_start
+						get_mft_output
+							mftdsp=calloc
+					get_action
+						do_matchprep
+					get_action1
+						doout1 - output to PMF
+
+-----------
+pom96 - clean up do_pom4 to get rid of menu for MATCH etc
+
+FOR sacmft96 - be very careful about the phase
+for interstation green's functions
+Do I really want to use observations at negative time????
+If this the cause for the funny phase velocity curves???

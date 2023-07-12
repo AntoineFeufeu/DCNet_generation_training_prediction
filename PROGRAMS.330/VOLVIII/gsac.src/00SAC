@@ -1,0 +1,18 @@
+Description of sac
+http://ds.iris.edu/files/sac-manual/sac_manual.pdf
+
+The header part of the sac file is described startinc on page
+40
+
+Specifically
+
+Name
+Type
+Description
+LCALDA
+L
+TRUE if DIST, AZ, BAZ, and GCARC are to be calculated from station and event
+coordinates.
+LOVROK
+L
+TRUE if it is okay to overwrite this file on disk.

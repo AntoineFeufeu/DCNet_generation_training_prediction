@@ -1,0 +1,64 @@
+.de BR
+.in 0
+.in +8n
+.ti -3n
+..
+
+.Th FILEID
+.S2 SUMMARY:
+Controls the plot legend
+
+FILEID [ON|OFf] [ TYpe DEfault|Name|LIst hdrlist] 
+LOcation [UR|UL|LR|LL|UC|LC] CONcat [ON|OFf] 
+Format [EQUals|COLons|NONames]
+
+.S2 INPUT:
+ON  :  Turn on file id option.  Does not change file id type or location.
+.BR
+OFf  :  Turn off file id option.
+.BR
+TYpe DEfault  :  Change to the default file label. This is KSTNM, KCMPNM
+.BR
+TYpe Name  :  Use the name of the file as the file label.
+.BR
+TYpe LIst hdrlist  :  Define a list of header fields to display in the fileid. 
+.BR
+The header fields permitted are the exact words KZDATE, KZTIME, KCMPNM, KSTNM, KEVNM, GCARC, DIST, AZ, BAZ, STLA, STLO, STEL, EVLA, EVLO, EVDP, USER1, USER2, USER3, USER4, USER5, 
+USER6, USER7, USER8, USER9, which are Sac header values. In addition the keyword FNAME can be used
+to output the file name together with the header values. However no more that the first 29 characters of FNAME are output.  Also the keyword BNAME will just output the filename afterstripping off the complete path information. The programs permits up to
+ten (10) such labels. However, because of limited space the appearance will be messy.
+.BR 
+CONCAT       :  When using the  LIst hdrlist  output the strings horizontally instead of
+vertically. This is useful if many traces are plotted, especially in OVERLAY mode. The ON or OFf controls this feature.
+.BR
+LOcation UR  :  Place file id in upper right hand corner.
+.BR
+LOcation UL  :  Place file id in upper left hand corner.
+.BR
+LOcation UC  :  Place file id in upper center.
+.BR
+LOcation LC  :  Place file id in lower center.
+.BR
+LOcation LR  :  Place file id in lower right hand corner.
+.BR
+LOcation LL  :  Place file id in lower left hand corner.
+.BR
+Format EQuals  :  Format consists of header field name, an equals sign, and the header field value.
+.BR
+FOrmat COlon  :  Format consists of header field name, a colon, and the value.
+.BR
+FOrmat NOnames  :  Format consists of header field value only with no label.
+.BR
+.S2 DESCRIPTION:
+
+.S2 "DEFAULT"
+The default mode is the station and component name.
+.br
+The NAME just lists the file name including directory information
+.br
+The LIST options gives up to ten items
+.sp
+FILEID ON TYPE DEFAULT LOCATION UR FORMAT NONAMES
+
+
+.S2 "SEE ALSO":

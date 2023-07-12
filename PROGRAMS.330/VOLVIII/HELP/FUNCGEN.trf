@@ -1,0 +1,96 @@
+.de BR
+.in 0
+.in +8n
+.ti -3n
+..
+.Th                                    FUNCGEN
+.S2 SUMMARY:
+Generate a synthetic time series for testing.
+
+FuncGen [Impulse | Triangle | Box  | Gaussian]  Delta delta NPts npts [ Length  length ] [Comp ncomb delay ] [ Alpha alpha ] [NOrm ON | OFF ] [SIN2 duration] [SIN4 duratio] [PAR2 duration]
+.S2 INPUT:
+Impulse  : Generate a time series with a single point with amplitude
+equal to 1.0/delta, where delta is the sampling interval in
+seconds. The impulse is centered at npts/2, and the B header
+value is set as \- (npts/2)*delta. The default output file is called impulse.sac
+This will have a unit Fourier amplitude spectrum.
+.BR
+Triangle : Generate a time series with three points with amplitudes equal to
+( 0.25/deta, 0.50/delta, 0.25/delta)
+where delta is the sampling interval in
+seconds. The triangle is centered at npts/2, and the B header
+value is set as \- (npts/2)*delta. The default output file is called triangle.sac
+This will have a unit spectral maplitude at zero frequency and a spectral zero
+at the Nyquist frequency, 0.5/delta. 
+.BR
+Box     : Create a boxcar with duration of 'length' seconds, starting at center of the trace. The minimum length is internally set to 10*delta!
+.BR
+Gaussian  :  Create a Gaussian pulse with parameter alpha. In the
+frequency domain the spectrum of the pulse is exp [ - ( pi f /
+alpha  )  ^2  ]  and in the time domain this is ( alpha / sqrt
+(pi)) exp ( - alpha^2 t^2 ). Note this is formed in  the  time
+domain  and  is  truncated when for the exponential  less than
+0.01.  Thus  the  duration  of  the  pulse  is   approximately
+4.28/alpha seconds.
+.BR
+Alpha   : Gaussian shape parameter used only with Gaussian pulse
+.BR
+Delta   : Sample interval in seconds
+.BR
+NPts    : Number of points in the time series
+.BR
+Comb    : repeat the chosen pulse 'ncomb' times with a separation of 'delay' seconds. The total area of this function is 1.0. This is designed to create compulciated pulses.
+.BR
+SIN2 tau : The positive pulse is sin^2( pi t / tau) for 0 <= t <= tau
+.BR
+SIN4 tau : The positive pulse is sin^2( pi t / tau) for 0 <= t <= tau
+.BR
+PAR2 tau : This is the double integral of the Day, Rimer, Cherry (1983) spall force time function.
+This function arises from  factoring mg out from the expression and integrating twice. The result, less the mg factor, is the source time function for the equivalent opening horizontal
+of Day and McLauglin (1991).
+.nf
+.na
+
+[ t H(t) + (t-tau) H(t-tau) - t^2 H(t) - (t-tau)^2 H(t-tau) ]/2
+
+.ad
+.fi
+where tau is the duration and H(x) is the unit step function..
+.BR
+NOrm ON|OFF : Default OFF. 
+.br
+If ON, then the SIN2, SIN4 and PAR2 pulses have unit area and the peak amplitudes are (2/tau), (8/3 tau) and (3/2 tau). 
+.sp
+If OFF, then  the peak amplitude of these pulses are 1,  1, and (1/8) duration^2, respectively. The  spectral levels at zero frequency are (tau/2), (3 tau/8) and (tau^3 / 12), respectively.
+.S2 NOTE:
+The A header value is set at the beginning of the SIN2, SIN4 and PAR2 pulses for convenience in convolution (help convolve)
+.S2 DESCRIPTION:
+This generates a synthetic time series. At present only the   impulse and triangle pulses
+Aare supported. The internal file name is either 'impulse.sac' or 'triangle.sac'. 
+.S2 REFERENCES:
+Day, S M. and N. Rimer and J. J. Cherry (1983).
+Surface waves from underground explostions with spall: Analysis of elastic and nonlinear source models,
+Bull. Seis. soc. Am.,
+73, pp 247-264.
+.sp
+Day, S. M. and K. L. McLaughlin (1991).Seismic source representations for spall, Bull. Seism. Soc., 81, pp 191-201.
+
+.S2 "SAC COMPATIBILITY:"
+SAC creates an impulse to have unit amplitude int the time domain, which means that the
+spectral amplitude will be 'delta'. GSAC creates an impulse with unit spectral amplitude
+at zero frequency.
+This is done to permit an easy view of the instrument response:
+.nf
+.ad
+	funcgen impulse deltaa  0.05 npts 4096
+	transfer from none to polezero subtype resp.paz
+	fft
+	psp am
+.ad
+.fi
+.S2 DEFAULT:
+FUNCGEN IMPULSE DELTA 1.0 NPTS 1024 ALPHA 1.0
+
+.S2 "SEE ALSO":
+       
+

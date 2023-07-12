@@ -1,0 +1,2526 @@
+cd Main; make CFLAGS="-I../Include -O -Wall" all
+make[1]: Entering directory '/home/cps/TCPS/PROGRAMS.330/IRIS/rdseedv5.3.slu/Main'
+gcc  -I../Include -O -Wall   -c -o output_seed.o output_seed.c
+output_seed.c: In function ‘output_seed_data_file’:
+output_seed.c:110:29: warning: unused variable ‘data_hdr’ [-Wunused-variable]
+      struct input_data_hdr *data_hdr = 
+                             ^
+output_seed.c: In function ‘update_type74’:
+output_seed.c:334:7: warning: implicit declaration of function ‘already_saved’ [-Wimplicit-function-declaration]
+  if (!already_saved(hdr->station))
+       ^
+output_seed.c: In function ‘output_seed_volume’:
+output_seed.c:556:7: warning: implicit declaration of function ‘output_volume_headers’ [-Wimplicit-function-declaration]
+  if (!output_volume_headers())
+       ^
+output_seed.c:562:7: warning: implicit declaration of function ‘output_abbrev_headers’ [-Wimplicit-function-declaration]
+  if (!output_abbrev_headers())
+       ^
+output_seed.c:569:7: warning: implicit declaration of function ‘output_station_headers’ [-Wimplicit-function-declaration]
+  if (!output_station_headers())
+       ^
+output_seed.c:577:7: warning: implicit declaration of function ‘patch_indexes’ [-Wimplicit-function-declaration]
+  if (!patch_indexes())
+       ^
+output_seed.c:586:7: warning: implicit declaration of function ‘pack_em’ [-Wimplicit-function-declaration]
+  if (!pack_em())
+       ^
+output_seed.c:594:2: warning: implicit declaration of function ‘free_station_list’ [-Wimplicit-function-declaration]
+  free_station_list(&s_listhead);
+  ^
+output_seed.c:596:3: warning: implicit declaration of function ‘clean_up_output_seed’ [-Wimplicit-function-declaration]
+   clean_up_output_seed();  
+   ^
+output_seed.c: In function ‘patch_indexes’:
+output_seed.c:825:7: warning: implicit declaration of function ‘patch_70’ [-Wimplicit-function-declaration]
+  if (!patch_70())
+       ^
+output_seed.c:829:7: warning: implicit declaration of function ‘patch_vol_header’ [-Wimplicit-function-declaration]
+  if (!patch_vol_header())
+       ^
+output_seed.c: In function ‘patch_vol_header’:
+output_seed.c:958:17: warning: implicit declaration of function ‘scan_stations’ [-Wimplicit-function-declaration]
+   station_loc = scan_stations(wrkstr);
+                 ^
+output_seed.c:986:8: warning: implicit declaration of function ‘get_all_stations_fsize’ [-Wimplicit-function-declaration]
+  ix += get_all_stations_fsize();
+        ^
+output_seed.c: In function ‘patch_70’:
+output_seed.c:1118:7: warning: implicit declaration of function ‘out_to_disk’ [-Wimplicit-function-declaration]
+  if (!out_to_disk(fptr_tmp, wrkstr, strlen(wrkstr), 'T'))
+       ^
+output_seed.c:1252:11: warning: implicit declaration of function ‘fill_to_LRECL’ [-Wimplicit-function-declaration]
+      if (!fill_to_LRECL(fptr_tmp))
+           ^
+output_seed.c:1034:23: warning: unused variable ‘s_list_ptr’ [-Wunused-variable]
+  struct station_list *s_list_ptr = s_listhead;
+                       ^
+output_seed.c:1028:5: warning: unused variable ‘num_bytes’ [-Wunused-variable]
+ int num_bytes;
+     ^
+output_seed.c: In function ‘output_station_headers’:
+output_seed.c:1294:8: warning: implicit declaration of function ‘chk_station’ [-Wimplicit-function-declaration]
+   if (!chk_station(type50_ptr->station))
+        ^
+output_seed.c:1301:5: warning: implicit declaration of function ‘chk_network’ [-Wimplicit-function-declaration]
+    !chk_network(type50_ptr->network_code))        
+     ^
+output_seed.c:1357:8: warning: implicit declaration of function ‘output_station_comment’ [-Wimplicit-function-declaration]
+   if (!output_station_comment(type50_ptr->type51_head, fptr))
+        ^
+output_seed.c:1367:8: warning: implicit declaration of function ‘output_channel’ [-Wimplicit-function-declaration]
+   if (!output_channel(type50_ptr->type52_head, fptr))
+        ^
+output_seed.c: In function ‘output_channel’:
+output_seed.c:1448:8: warning: implicit declaration of function ‘chk_channel’ [-Wimplicit-function-declaration]
+   if (!chk_channel(type52_ptr->channel))
+        ^
+output_seed.c:1495:8: warning: implicit declaration of function ‘output_response’ [-Wimplicit-function-declaration]
+   if (!output_response(type52_ptr->response_head, fptr))
+        ^
+output_seed.c:1498:8: warning: implicit declaration of function ‘output_channel_comment’ [-Wimplicit-function-declaration]
+   if (!output_channel_comment(type52_ptr->type59_head, fptr))
+        ^
+output_seed.c: In function ‘output_response’:
+output_seed.c:1524:13: warning: implicit declaration of function ‘output_poles_zeros’ [-Wimplicit-function-declaration]
+     error = output_poles_zeros(response->ptr.type53, fptr);
+             ^
+output_seed.c:1527:13: warning: implicit declaration of function ‘output_coefficients’ [-Wimplicit-function-declaration]
+     error = output_coefficients(response->ptr.type54, fptr);
+             ^
+output_seed.c:1530:13: warning: implicit declaration of function ‘output_list’ [-Wimplicit-function-declaration]
+     error = output_list(response->ptr.type55, fptr);
+             ^
+output_seed.c:1533:13: warning: implicit declaration of function ‘output_generic’ [-Wimplicit-function-declaration]
+     error = output_generic(response->ptr.type56, fptr);
+             ^
+output_seed.c:1536:13: warning: implicit declaration of function ‘output_decimations’ [-Wimplicit-function-declaration]
+     error = output_decimations(response->ptr.type57, fptr);
+             ^
+output_seed.c:1539:13: warning: implicit declaration of function ‘output_sensitivity’ [-Wimplicit-function-declaration]
+     error = output_sensitivity(response->ptr.type58, fptr);
+             ^
+output_seed.c:1545:13: warning: implicit declaration of function ‘output_FIR’ [-Wimplicit-function-declaration]
+     error = output_FIR(response->ptr.type61, fptr);
+             ^
+output_seed.c:1548:13: warning: implicit declaration of function ‘output_poly’ [-Wimplicit-function-declaration]
+     error = output_poly(response->ptr.type62, fptr);
+             ^
+output_seed.c: In function ‘output_abbrev_headers’:
+output_seed.c:2219:7: warning: unused variable ‘wrkstr’ [-Wunused-variable]
+  char wrkstr[200];
+       ^
+output_seed.c: In function ‘output_volume_headers’:
+output_seed.c:2506:32: warning: implicit declaration of function ‘get_num_stations’ [-Wimplicit-function-declaration]
+  sprintf(c_ptr, "0110000%03d", get_num_stations());
+                                ^
+output_seed.c:2441:21: warning: unused variable ‘t_list_ptr’ [-Wunused-variable]
+  struct tspan_list *t_list_ptr;
+                     ^
+output_seed.c: In function ‘out_to_disk’:
+output_seed.c:2573:6: warning: implicit declaration of function ‘spans_LRECL’ [-Wimplicit-function-declaration]
+  if (spans_LRECL(fptr, 7))
+      ^
+output_seed.c: In function ‘position_to_single_record_read’:
+output_seed.c:2901:13: warning: implicit declaration of function ‘get_LRECL’ [-Wimplicit-function-declaration]
+   rec_len = get_LRECL(hdr, lrecord);
+             ^
+output_seed.c:2908:3: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   if(*num_bytes_read = fread(lrecord, 1, LRECL, fptr) != LRECL) {
+   ^
+output_seed.c: In function ‘output_seed_data_file’:
+output_seed.c:115:9: warning: ignoring return value of ‘getcwd’, declared with attribute warn_unused_result [-Wunused-result]
+         getcwd(orig_dir, MAXPATHLEN);
+         ^
+output_seed.c:117:4: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+    chdir(output_dir);
+    ^
+output_seed.c:126:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:140:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:151:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:162:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:174:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:192:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(orig_dir);
+  ^
+output_seed.c: In function ‘update_type71’:
+output_seed.c:211:9: warning: ignoring return value of ‘getcwd’, declared with attribute warn_unused_result [-Wunused-result]
+         getcwd(orig_dir, MAXPATHLEN);
+         ^
+output_seed.c:213:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(output_dir);
+  ^
+output_seed.c:229:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:239:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:244:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(orig_dir);
+  ^
+output_seed.c: In function ‘update_type74’:
+output_seed.c:275:9: warning: ignoring return value of ‘getcwd’, declared with attribute warn_unused_result [-Wunused-result]
+         getcwd(orig_dir, MAXPATHLEN);
+         ^
+output_seed.c:281:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(output_dir);
+  ^
+output_seed.c:298:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:324:5: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+     chdir(orig_dir);
+     ^
+output_seed.c:340:4: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+    chdir(orig_dir);
+    ^
+output_seed.c:411:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:486:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:497:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:520:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(orig_dir);
+  ^
+output_seed.c: In function ‘output_seed_volume’:
+output_seed.c:538:9: warning: ignoring return value of ‘getcwd’, declared with attribute warn_unused_result [-Wunused-result]
+         getcwd(orig_dir, MAXPATHLEN);
+         ^
+output_seed.c:540:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(output_dir);
+  ^
+output_seed.c:550:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:558:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:564:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:571:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:579:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_seed.c:602:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(orig_dir);
+  ^
+output_seed.c: In function ‘clean_up_output_seed’:
+output_seed.c:2708:9: warning: ignoring return value of ‘getcwd’, declared with attribute warn_unused_result [-Wunused-result]
+         getcwd(orig_dir, MAXPATHLEN);
+         ^
+output_seed.c:2710:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(output_dir);
+  ^
+output_seed.c:2733:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(orig_dir);
+  ^
+gcc  -I../Include -O -Wall   -c -o output_LOG.o output_LOG.c
+output_LOG.c: In function ‘dump_LOG_rec’:
+output_LOG.c:42:2: warning: ignoring return value of ‘getcwd’, declared with attribute warn_unused_result [-Wunused-result]
+  getcwd(orig_dir, MAXPATHLEN);
+  ^
+output_LOG.c:44:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(output_dir);
+  ^
+output_LOG.c:64:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_LOG.c:90:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(orig_dir);
+  ^
+gcc  -I../Include -O -Wall   -c -o steim.o steim.c
+steim.c:161:27: warning: missing braces around initializer [-Wmissing-braces]
+ TRANSITION transition[] = {
+                           ^
+steim.c:161:27: note: (near initialization for ‘transition’)
+steim.c:216:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ statistics( stat, tossed, Number_of_samples )
+ ^
+steim.c:317:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ finish_record( fp, p_seed_data_records, p_fsdh, ds )
+ ^
+steim.c: In function ‘finish_record’:
+steim.c:334:6: warning: implicit declaration of function ‘get_word_order’ [-Wimplicit-function-declaration]
+  if (get_word_order() == 0) // intel
+      ^
+steim.c:336:12: warning: implicit declaration of function ‘swap_4byte’ [-Wimplicit-function-declaration]
+   ds->x0 = swap_4byte(ds->x0);
+            ^
+steim.c:362:3: warning: implicit declaration of function ‘swap_DATA_HEADER’ [-Wimplicit-function-declaration]
+   swap_DATA_HEADER(&tmp_fsdh);
+   ^
+steim.c:365:3: warning: implicit declaration of function ‘blockette_swap_back’ [-Wimplicit-function-declaration]
+   blockette_swap_back((char *)blks);
+   ^
+steim.c: At top level:
+steim.c:417:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ Add_word(fp, p_seed_data_records, p_fsdh, wk, ck, ds )
+ ^
+steim.c: In function ‘Add_word’:
+steim.c:426:18: warning: unused variable ‘p4’ [-Wunused-variable]
+  int p1, p2, p3, p4;
+                  ^
+steim.c:426:14: warning: unused variable ‘p3’ [-Wunused-variable]
+  int p1, p2, p3, p4;
+              ^
+steim.c:426:10: warning: unused variable ‘p2’ [-Wunused-variable]
+  int p1, p2, p3, p4;
+          ^
+steim.c:426:6: warning: unused variable ‘p1’ [-Wunused-variable]
+  int p1, p2, p3, p4;
+      ^
+steim.c:425:8: warning: unused variable ‘ptr’ [-Wunused-variable]
+  char *ptr;
+        ^
+steim.c: In function ‘swap_DATA_HEADER’:
+steim.c:474:4: warning: implicit declaration of function ‘swap_2byte’ [-Wimplicit-function-declaration]
+    swap_2byte(data_header->Record_start_time.year);
+    ^
+steim.c: At top level:
+steim.c:508:1: warning: "/*" within comment [-Wcomment]
+ /*--------------------------------------------------------------------------*\
+ ^
+steim.c: In function ‘Steim_comp’:
+steim.c:651:12: warning: unused variable ‘cx’ [-Wunused-variable]
+       char cx = (char)dif;
+            ^
+steim.c:659:13: warning: unused variable ‘sx’ [-Wunused-variable]
+       short sx = (short)dif;
+             ^
+steim.c: In function ‘statistics’:
+steim.c:237:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+steim.c: In function ‘eval_rate’:
+steim.c:258:5: warning: control reaches end of non-void function [-Wreturn-type]
+     }
+     ^
+steim.c: In function ‘Steim_comp’:
+steim.c:804:13: warning: ‘wk’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+   if (-1 == Add_word(fp, p_seed_data_records, 
+             ^
+steim.c:804:13: warning: ‘ck’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+gcc  -I../Include -O -Wall   -c -o rdseed.o rdseed.c
+rdseed.c:308:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ main (argc, argv, evp)
+ ^
+rdseed.c: In function ‘main’:
+rdseed.c:349:14: warning: unused variable ‘optint’ [-Wunused-variable]
+   extern int optint;
+              ^
+rdseed.c:447:2: warning: implicit declaration of function ‘reset_stn_chn_flags’ [-Wimplicit-function-declaration]
+  reset_stn_chn_flags();
+  ^
+rdseed.c:468:2: warning: implicit declaration of function ‘get_environment’ [-Wimplicit-function-declaration]
+  get_environment();
+  ^
+rdseed.c:481:4: warning: implicit declaration of function ‘parse_option’ [-Wimplicit-function-declaration]
+    parse_option(options->option[i], 
+    ^
+rdseed.c:502:4: warning: implicit declaration of function ‘clean_up_output_seed’ [-Wimplicit-function-declaration]
+    clean_up_output_seed(); 
+    ^
+rdseed.c:510:3: warning: implicit declaration of function ‘option_prompt’ [-Wimplicit-function-declaration]
+   option_prompt();
+   ^
+rdseed.c:532:20: warning: implicit declaration of function ‘check_block_mode’ [-Wimplicit-function-declaration]
+  input_file_type = check_block_mode(inputfilename);
+                    ^
+rdseed.c:629:20: warning: suggest parentheses around comparison in operand of ‘|’ [-Wparentheses]
+     if (precord[6] == 'M' | precord[6] == 'D' || precord[6] == 'Q' || precord[6] == 'R') {
+                    ^
+rdseed.c:712:6: warning: implicit declaration of function ‘swap_fsdh’ [-Wimplicit-function-declaration]
+      swap_fsdh(&input_data_ptr); 
+      ^
+rdseed.c:755:45: warning: implicit declaration of function ‘chk_station’ [-Wimplicit-function-declaration]
+                                         if (chk_station(input_data_hdr->station)&&
+                                             ^
+rdseed.c:756:57: warning: implicit declaration of function ‘chk_channel’ [-Wimplicit-function-declaration]
+                                                         chk_channel(input_data_hdr->channel) &&                                         
+                                                         ^
+rdseed.c:757:57: warning: implicit declaration of function ‘chk_network’ [-Wimplicit-function-declaration]
+                                                         chk_network(input_data_hdr->network))
+                                                         ^
+rdseed.c:762:57: warning: implicit declaration of function ‘get_LRECL’ [-Wimplicit-function-declaration]
+                                                 LRECL = get_LRECL(input_data_hdr, lrecord_ptr);
+                                                         ^
+rdseed.c:764:7: warning: implicit declaration of function ‘times_data’ [-Wimplicit-function-declaration]
+       times_data(0);
+       ^
+rdseed.c:782:6: warning: implicit declaration of function ‘atc_load’ [-Wimplicit-function-declaration]
+      atc_load(inputfile);
+      ^
+rdseed.c:784:6: warning: implicit declaration of function ‘atc_dump’ [-Wimplicit-function-declaration]
+      atc_dump();
+      ^
+rdseed.c:794:14: warning: implicit declaration of function ‘process_time_span_index’ [-Wimplicit-function-declaration]
+      if (i = process_time_span_index()) /* 0 = type74; 1 = type73; -1 = none */
+              ^
+rdseed.c:794:6: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+      if (i = process_time_span_index()) /* 0 = type74; 1 = type73; -1 = none */
+      ^
+rdseed.c:858:6: warning: implicit declaration of function ‘close_alt_files’ [-Wimplicit-function-declaration]
+      close_alt_files();
+      ^
+rdseed.c:899:35: warning: implicit declaration of function ‘process_B70s’ [-Wimplicit-function-declaration]
+                                   process_B70s(inputfile);
+                                   ^
+rdseed.c:926:7: warning: implicit declaration of function ‘process_B11’ [-Wimplicit-function-declaration]
+       process_B11(inputfile);
+       ^
+rdseed.c:1008:25: warning: implicit declaration of function ‘scan_stn_net’ [-Wimplicit-function-declaration]
+      if ((got_station = scan_stn_net()) == 0)
+                         ^
+rdseed.c:1117:3: warning: implicit declaration of function ‘output_stn_chn_comments’ [-Wimplicit-function-declaration]
+   output_stn_chn_comments();
+   ^
+rdseed.c:1120:3: warning: implicit declaration of function ‘output_stn_comments’ [-Wimplicit-function-declaration]
+   output_stn_comments();
+   ^
+rdseed.c:1123:3: warning: implicit declaration of function ‘output_chn_comments’ [-Wimplicit-function-declaration]
+   output_chn_comments();
+   ^
+rdseed.c:1126:3: warning: implicit declaration of function ‘output_event_info’ [-Wimplicit-function-declaration]
+   output_event_info();
+   ^
+rdseed.c:1129:3: warning: implicit declaration of function ‘output_station_info’ [-Wimplicit-function-declaration]
+   output_station_info();
+   ^
+rdseed.c:1132:3: warning: implicit declaration of function ‘dump_seismic_buffer’ [-Wimplicit-function-declaration]
+   dump_seismic_buffer();
+   ^
+rdseed.c:1135:2: warning: implicit declaration of function ‘close_b2k_file’ [-Wimplicit-function-declaration]
+  close_b2k_file(); /* if open */
+  ^
+rdseed.c:1141:3: warning: implicit declaration of function ‘output_seed_volume’ [-Wimplicit-function-declaration]
+   output_seed_volume();
+   ^
+rdseed.c:1151:6: warning: implicit declaration of function ‘output_resp’ [-Wimplicit-function-declaration]
+      output_resp();
+      ^
+rdseed.c:1187:3: warning: implicit declaration of function ‘output_polesNzeros’ [-Wimplicit-function-declaration]
+   output_polesNzeros();
+   ^
+rdseed.c:1200:2: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  if (inputfile = get_alt_file())
+  ^
+rdseed.c:1209:3: warning: implicit declaration of function ‘free_all’ [-Wimplicit-function-declaration]
+   free_all(); 
+   ^
+rdseed.c:1233:3: warning: implicit declaration of function ‘free_stn_nodes’ [-Wimplicit-function-declaration]
+   free_stn_nodes();
+   ^
+rdseed.c:316:6: warning: unused variable ‘j’ [-Wunused-variable]
+  int j;    /* counter */
+      ^
+rdseed.c: In function ‘process_blk_2k’:
+rdseed.c:1295:9: warning: implicit declaration of function ‘output_b2k’ [-Wimplicit-function-declaration]
+  err =  output_b2k(hdr, blk, rec_length);
+         ^
+rdseed.c: In function ‘process_B70s’:
+rdseed.c:1334:4: warning: ‘return’ with no value, in function returning non-void
+    return;
+    ^
+rdseed.c:1359:33: warning: ‘return’ with no value, in function returning non-void
+                                 return;
+                                 ^
+rdseed.c:1366:8: warning: implicit declaration of function ‘skip_to_T’ [-Wimplicit-function-declaration]
+    if (skip_to_T(inputfile) == 0)
+        ^
+rdseed.c:1367:26: warning: ‘return’ with no value, in function returning non-void
+                          return;
+                          ^
+rdseed.c:1395:27: warning: ‘return’ with no value, in function returning non-void
+                           return;
+                           ^
+rdseed.c: In function ‘process_B11’:
+rdseed.c:1451:5: warning: implicit declaration of function ‘process_station_lrecs’ [-Wimplicit-function-declaration]
+     process_station_lrecs(inputfile, i, type11);
+     ^
+rdseed.c: In function ‘process_station_lrecs’:
+rdseed.c:1682:4: warning: ‘return’ with no value, in function returning non-void
+    return; /* bale */
+    ^
+rdseed.c:1688:5: warning: ‘return’ with no value, in function returning non-void
+     return;
+     ^
+rdseed.c:1699:5: warning: ‘return’ with no value, in function returning non-void
+     return; /* finished with this station */
+     ^
+rdseed.c:1729:2: warning: ‘return’ with no value, in function returning non-void
+  return;
+  ^
+rdseed.c: In function ‘parse_option’:
+rdseed.c:1921:8: warning: implicit declaration of function ‘read_summary_file’ [-Wimplicit-function-declaration]
+        read_summary_file(arg);
+        ^
+rdseed.c: At top level:
+rdseed.c:1957:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ option_prompt()
+ ^
+rdseed.c: In function ‘option_prompt’:
+rdseed.c:1981:3: warning: implicit declaration of function ‘strip_blanks’ [-Wimplicit-function-declaration]
+   strip_blanks(buffer, buffer);
+   ^
+rdseed.c:2205:25: warning: implicit declaration of function ‘rdseed_strupr’ [-Wimplicit-function-declaration]
+                         rdseed_strupr(location_point[location_count]);
+                         ^
+rdseed.c:2222:4: warning: ‘return’ with no value, in function returning non-void
+    return;
+    ^
+rdseed.c:2257:4: warning: ‘return’ with no value, in function returning non-void
+    return;
+    ^
+rdseed.c:2319:5: warning: ‘return’ with no value, in function returning non-void
+     return;
+     ^
+rdseed.c:2374:5: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+     if (i = 0) check_reverse = 0;
+     ^
+rdseed.c:2456:6: warning: implicit declaration of function ‘timecvt’ [-Wimplicit-function-declaration]
+      timecvt(&start_time_point[start_time_count], p);
+      ^
+rdseed.c: In function ‘chk_station’:
+rdseed.c:2639:7: warning: implicit declaration of function ‘wstrcmp’ [-Wimplicit-function-declaration]
+   if (wstrcmp(station,station_point[i],5) == 0) return(TRUE);
+       ^
+rdseed.c: In function ‘chk_location’:
+rdseed.c:2733:7: warning: implicit declaration of function ‘str_isnum’ [-Wimplicit-function-declaration]
+   if (str_isnum(loc) && str_isnum(location_point[i]))
+       ^
+rdseed.c: In function ‘wstrcmp’:
+rdseed.c:2795:11: warning: unused variable ‘c2’ [-Wunused-variable]
+  char c1, c2;
+           ^
+rdseed.c:2795:7: warning: unused variable ‘c1’ [-Wunused-variable]
+  char c1, c2;
+       ^
+rdseed.c: At top level:
+rdseed.c:2845:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ rdseed_strupr(string)
+ ^
+rdseed.c:2859:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ get_environment()
+ ^
+rdseed.c: In function ‘get_environment’:
+rdseed.c:2875:9: warning: implicit declaration of function ‘get_file_line’ [-Wimplicit-function-declaration]
+     n = get_file_line( buffer, sizeof( buffer ) - 1, fp );
+         ^
+rdseed.c:2891:7: warning: unused variable ‘i’ [-Wunused-variable]
+   int i;
+       ^
+rdseed.c: In function ‘init_alt_files’:
+rdseed.c:2926:6: warning: implicit declaration of function ‘open_alt_files’ [-Wimplicit-function-declaration]
+  if (open_alt_files(fns) == -1)
+      ^
+rdseed.c: At top level:
+rdseed.c:2970:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ check_block_mode(filename)
+ ^
+rdseed.c:2988:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ strip_blanks(input, output)
+ ^
+rdseed.c: In function ‘get_type10’:
+rdseed.c:3013:25: warning: variable ‘input_data_hdr’ set but not used [-Wunused-but-set-variable]
+  struct input_data_hdr *input_data_hdr;          /* fixed data header */
+                         ^
+rdseed.c: At top level:
+rdseed.c:277:12: warning: ‘handle_var_rec’ defined but not used [-Wunused-variable]
+ static int handle_var_rec = FALSE;
+            ^
+rdseed.c: In function ‘main’:
+rdseed.c:336:2: warning: ignoring return value of ‘getcwd’, declared with attribute warn_unused_result [-Wunused-result]
+  getcwd(Rdseed_Cwd, MAXPATHLEN);
+  ^
+rdseed.c: In function ‘process_B11’:
+rdseed.c:1457:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+rdseed.c: In function ‘parse_option’:
+rdseed.c:1950:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+rdseed.c: In function ‘option_prompt’:
+rdseed.c:2064:3: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+   fgets(buffer,sizeof(buffer),stdin);
+   ^
+rdseed.c:2083:3: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+   fgets(buffer, sizeof(buffer), stdin);
+   ^
+rdseed.c: In function ‘rdseed_strupr’:
+rdseed.c:2853:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+rdseed.c: In function ‘get_environment’:
+rdseed.c:2913:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+rdseed.c: In function ‘strip_blanks’:
+rdseed.c:3001:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+rdseed.c: In function ‘main’:
+rdseed.c:647:28: warning: ‘save_file’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+      if ((num_bytes_read = skip_to_DRQ(inputfile)) == 0)
+                            ^
+gcc  -I../Include -O -Wall   -c -o alt_response.o alt_response.c
+alt_response.c: In function ‘open_alt_files’:
+alt_response.c:61:3: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   while(p = strtok(NULL, ":"))
+   ^
+alt_response.c:47:6: warning: unused variable ‘error’ [-Wunused-variable]
+  int error;
+      ^
+alt_response.c: In function ‘close_alt_files’:
+alt_response.c:40:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+alt_response.c: In function ‘open_alt_files’:
+alt_response.c:78:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+gcc  -I../Include -O -Wall   -c -o output_event_info.o output_event_info.c
+output_event_info.c: In function ‘output_event_info’:
+output_event_info.c:76:3: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+   SUBSTR(buff, ',', ' '); /* make sure there are no commas
+   ^
+output_event_info.c:51:20: warning: unused variable ‘mag_ptr’ [-Wunused-variable]
+  struct type71sub *mag_ptr;
+                    ^
+output_event_info.c:57:2: warning: ignoring return value of ‘getcwd’, declared with attribute warn_unused_result [-Wunused-result]
+  getcwd(orig_dir, MAXPATHLEN);
+  ^
+output_event_info.c:59:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(output_dir);
+  ^
+output_event_info.c:67:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_event_info.c:117:4: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+    chdir(orig_dir);
+    ^
+output_event_info.c:133:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(orig_dir);
+  ^
+output_event_info.c: In function ‘output_station_info’:
+output_event_info.c:152:2: warning: ignoring return value of ‘getcwd’, declared with attribute warn_unused_result [-Wunused-result]
+  getcwd(orig_dir, MAXPATHLEN);
+  ^
+output_event_info.c:154:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(output_dir);
+  ^
+output_event_info.c:161:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_event_info.c:215:4: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+    chdir(orig_dir);
+    ^
+output_event_info.c:224:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(orig_dir);
+  ^
+gcc  -I../Include -O -Wall   -c -o summary.o summary.c
+summary.c:79:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ read_summary_file(fname)
+ ^
+In file included from summary.c:6:0:
+summary.c: In function ‘read_summary_file’:
+../Include/rdseed.h:93:18: warning: implicit declaration of function ‘save_myfprintf’ [-Wimplicit-function-declaration]
+ #define fprintf  save_myfprintf
+                  ^
+summary.c:113:3: note: in expansion of macro ‘fprintf’
+   fprintf(stderr, "Unable to open summary file: %s!\n", fname);
+   ^
+summary.c:185:4: warning: implicit declaration of function ‘add_stn’ [-Wimplicit-function-declaration]
+    add_stn(stn_ptr->stn);
+    ^
+summary.c:220:4: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+    SUBSTR(loc, '-', ' ');
+    ^
+summary.c:245:4: warning: implicit declaration of function ‘add_chn’ [-Wimplicit-function-declaration]
+    add_chn(twindow_ptr->chn_list);
+    ^
+summary.c:247:4: warning: implicit declaration of function ‘add_loc’ [-Wimplicit-function-declaration]
+    add_loc(twindow_ptr->loc_list);
+    ^
+summary.c:194:10: warning: unused variable ‘ch_ptr’ [-Wunused-variable]
+    char *ch_ptr;
+          ^
+summary.c: In function ‘add_stn’:
+summary.c:356:2: warning: ‘return’ with no value, in function returning non-void
+  return;
+  ^
+summary.c: In function ‘add_chn’:
+summary.c:395:9: warning: ‘return’ with no value, in function returning non-void
+         return;
+         ^
+summary.c:374:8: warning: unused variable ‘ch_ptr’ [-Wunused-variable]
+  char *ch_ptr;
+        ^
+summary.c:371:13: warning: unused variable ‘found’ [-Wunused-variable]
+         int found = FALSE;
+             ^
+summary.c:370:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;
+      ^
+summary.c: In function ‘add_loc’:
+summary.c:416:2: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  SUBSTR(locations, '-', ' ');
+  ^
+summary.c:418:2: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  SUBSTR(locations, ':', ',');
+  ^
+summary.c:439:9: warning: ‘return’ with no value, in function returning non-void
+         return;
+         ^
+summary.c:409:8: warning: unused variable ‘ch_ptr’ [-Wunused-variable]
+  char *ch_ptr;
+        ^
+summary.c:406:13: warning: unused variable ‘found’ [-Wunused-variable]
+         int found = FALSE;
+             ^
+summary.c:405:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;
+      ^
+summary.c: In function ‘dump_twindows’:
+summary.c:450:14: warning: unused variable ‘chn_list’ [-Wunused-variable]
+         char chn_list[100];
+              ^
+summary.c:448:14: warning: unused variable ‘time_end’ [-Wunused-variable]
+         char time_end[23];
+              ^
+summary.c:447:14: warning: unused variable ‘time_start’ [-Wunused-variable]
+         char time_start[23];
+              ^
+summary.c: In function ‘free_stn_nodes’:
+summary.c:468:2: warning: implicit declaration of function ‘free_stn’ [-Wimplicit-function-declaration]
+  free_stn(stn_listhead); 
+  ^
+summary.c:473:2: warning: ‘return’ with no value, in function returning non-void
+  return;
+  ^
+summary.c: In function ‘free_stn’:
+summary.c:484:3: warning: ‘return’ with no value, in function returning non-void
+   return;
+   ^
+summary.c:490:3: warning: implicit declaration of function ‘free_tspans’ [-Wimplicit-function-declaration]
+   free_tspans(node->ts_head);
+   ^
+summary.c:501:2: warning: ‘return’ with no value, in function returning non-void
+  return;
+  ^
+summary.c: In function ‘free_tspans’:
+summary.c:513:17: warning: ‘return’ with no value, in function returning non-void
+                 return;
+                 ^
+summary.c:524:9: warning: ‘return’ with no value, in function returning non-void
+         return;
+         ^
+summary.c: In function ‘add_time’:
+summary.c:545:2: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  SUBSTR(time_asc, ',', ' ');
+  ^
+summary.c:547:2: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  SUBSTR(time_asc, ':', ' ');
+  ^
+summary.c:549:2: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  SUBSTR(time_asc, '.', ' ');
+  ^
+summary.c: In function ‘ddd2mmdd’:
+summary.c:609:3: warning: ‘return’ with no value, in function returning non-void
+   return;
+   ^
+summary.c: In function ‘set_event’:
+summary.c:654:3: warning: implicit declaration of function ‘trim’ [-Wimplicit-function-declaration]
+   trim(stn_ptr->this_event);
+   ^
+summary.c:656:7: warning: implicit declaration of function ‘split’ [-Wimplicit-function-declaration]
+   n = split(stn_ptr->this_event, &c_ptr, ',');
+       ^
+summary.c:693:10: warning: implicit declaration of function ‘timecvt’ [-Wimplicit-function-declaration]
+          timecvt(&ev_start, ev_time);
+          ^
+summary.c:633:18: warning: variable ‘nnnn’ set but not used [-Wunused-but-set-variable]
+  int n, nn, nnn, nnnn;
+                  ^
+summary.c:633:13: warning: variable ‘nnn’ set but not used [-Wunused-but-set-variable]
+  int n, nn, nnn, nnnn;
+             ^
+summary.c:633:9: warning: variable ‘nn’ set but not used [-Wunused-but-set-variable]
+  int n, nn, nnn, nnnn;
+         ^
+summary.c:633:6: warning: variable ‘n’ set but not used [-Wunused-but-set-variable]
+  int n, nn, nnn, nnnn;
+      ^
+summary.c:624:9: warning: variable ‘t’ set but not used [-Wunused-but-set-variable]
+  time_t t;
+         ^
+summary.c: In function ‘scan_summary_file’:
+summary.c:767:3: warning: implicit declaration of function ‘rdseed_strupr’ [-Wimplicit-function-declaration]
+   rdseed_strupr(stn_ptr->ts_head->chn_list);
+   ^
+summary.c:773:8: warning: implicit declaration of function ‘wstrcmp’ [-Wimplicit-function-declaration]
+    if (wstrcmp(chn, c_ptr[i], 3) == 0)
+        ^
+summary.c:789:5: warning: implicit declaration of function ‘fuse’ [-Wimplicit-function-declaration]
+     fuse(&l_ptr, nn);
+     ^
+summary.c: In function ‘process_summary_file’:
+summary.c:860:8: warning: implicit declaration of function ‘scan_74s’ [-Wimplicit-function-declaration]
+   if (!scan_74s(stn_ptr->stn, stn_ptr->net))
+        ^
+summary.c:908:6: warning: implicit declaration of function ‘extract_this_timespan’ [-Wimplicit-function-declaration]
+      extract_this_timespan(b74_ptr);
+      ^
+summary.c:935:2: warning: implicit declaration of function ‘time_span_out’ [-Wimplicit-function-declaration]
+  time_span_out();
+  ^
+summary.c:850:7: warning: unused variable ‘channel’ [-Wunused-variable]
+  char channel[4];
+       ^
+summary.c:847:8: warning: unused variable ‘chn_ptr’ [-Wunused-variable]
+  char *chn_ptr, **c_ptr;
+        ^
+summary.c:843:32: warning: unused variable ‘tw’ [-Wunused-variable]
+         struct twindow *twin, *tw;
+                                ^
+summary.c:843:25: warning: unused variable ‘twin’ [-Wunused-variable]
+         struct twindow *twin, *tw;
+                         ^
+summary.c: In function ‘scan_list’:
+summary.c:981:7: warning: implicit declaration of function ‘chk_s_n_c_l’ [-Wimplicit-function-declaration]
+   if (chk_s_n_c_l(this_74->station,
+       ^
+summary.c:1023:75: warning: suggest parentheses around ‘&&’ within ‘||’ [-Wparentheses]
+                                 (IS_BTW(req_end, tspan_start, tspan_end)) && 
+                                                                           ^
+summary.c: In function ‘extract_74s’:
+summary.c:1089:7: warning: implicit declaration of function ‘chk_type74’ [-Wimplicit-function-declaration]
+   if (chk_type74(type74, start, end))
+       ^
+summary.c:1076:17: warning: unused variable ‘sav_type74’ [-Wunused-variable]
+  struct type74 *sav_type74 = type74;
+                 ^
+summary.c:1074:6: warning: variable ‘found_times’ set but not used [-Wunused-but-set-variable]
+  int found_times, found_stn;
+      ^
+summary.c: In function ‘chk_s_n_c_l’:
+summary.c:1237:6: warning: implicit declaration of function ‘chk_chn_list’ [-Wimplicit-function-declaration]
+  if (chk_chn_list(c, type74->channel) == 0)
+      ^
+summary.c:1240:7: warning: implicit declaration of function ‘chk_locs’ [-Wimplicit-function-declaration]
+  if (!chk_locs(l, type74->location))
+       ^
+summary.c: In function ‘read_summary_file’:
+summary.c:128:4: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+    fgets(buffer, 512, sumfile);
+    ^
+summary.c:136:4: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+    fgets(buffer, 512, sumfile);
+    ^
+summary.c:165:4: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+    fscanf(sumfile, 
+    ^
+summary.c:187:4: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+    fgets(buffer, 512, sumfile);
+    ^
+summary.c:202:5: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(sumfile, 
+     ^
+summary.c:211:5: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+     fscanf(sumfile, 
+     ^
+summary.c: In function ‘process_summary_file’:
+summary.c:937:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+summary.c: In function ‘scan_list’:
+summary.c:1046:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+summary.c: In function ‘setup_tspan’:
+summary.c:1498:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+summary.c: In function ‘read_summary_file’:
+summary.c:271:14: warning: ‘stn_ptr’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+       stn_ptr->ts_tail);
+              ^
+summary.c: In function ‘set_event’:
+summary.c:722:26: warning: ‘sav_stn_ptr’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+  this_event = sav_stn_ptr->this_event;
+                          ^
+gcc  -I../Include -O -Wall   -c -o output_segy.o output_segy.c
+In file included from output_segy.c:129:0:
+output_segy.c: In function ‘output_segy’:
+../Include/rdseed.h:93:18: warning: implicit declaration of function ‘save_myfprintf’ [-Wimplicit-function-declaration]
+ #define fprintf  save_myfprintf
+                  ^
+output_segy.c:177:3: note: in expansion of macro ‘fprintf’
+   fprintf(stderr,"\tWARNING (output_segy):  Output Data Contains No Samples\n");
+   ^
+output_segy.c:211:11: warning: implicit declaration of function ‘delaz’ [-Wimplicit-function-declaration]
+   error = delaz(type71_head->latitude,
+           ^
+output_segy.c:228:3: warning: implicit declaration of function ‘timecvt’ [-Wimplicit-function-declaration]
+   timecvt(&t, type71_head->origin_time);
+   ^
+output_segy.c:360:18: warning: implicit declaration of function ‘check_for_reversal’ [-Wimplicit-function-declaration]
+   reverse_flag = check_for_reversal(current_channel->dip,
+                  ^
+output_segy.c:454:9: warning: implicit declaration of function ‘dir_exists’ [-Wimplicit-function-declaration]
+    if (!dir_exists(dirname))
+         ^
+output_segy.c:589:25: warning: implicit declaration of function ‘rdseed_alert_msg_out’ [-Wimplicit-function-declaration]
+                         rdseed_alert_msg_out(wrkstr);
+                         ^
+output_segy.c:160:14: warning: unused variable ‘azimuth’ [-Wunused-variable]
+  double dip, azimuth;  /* */
+              ^
+output_segy.c:160:9: warning: unused variable ‘dip’ [-Wunused-variable]
+  double dip, azimuth;  /* */
+         ^
+output_segy.c:158:6: warning: variable ‘binary’ set but not used [-Wunused-but-set-variable]
+  int binary;   /* switch for binary output */
+      ^
+output_segy.c:156:7: warning: unused variable ‘character’ [-Wunused-variable]
+  char character[8+1];  /* for character transfer */
+       ^
+output_segy.c:171:2: warning: ignoring return value of ‘getcwd’, declared with attribute warn_unused_result [-Wunused-result]
+  getcwd(orig_dir, MAXPATHLEN);
+  ^
+output_segy.c:173:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(output_dir);
+  ^
+output_segy.c:178:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(orig_dir);
+   ^
+output_segy.c:313:4: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+    chdir(orig_dir);
+    ^
+output_segy.c:466:4: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+    chdir(dirname);
+    ^
+output_segy.c:517:4: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+    chdir(orig_dir);
+    ^
+output_segy.c:568:4: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+    chdir(orig_dir);
+    ^
+output_segy.c:616:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(orig_dir);
+  ^
+gcc  -I../Include -O -Wall   -c -o output_b2k.o output_b2k.c
+output_b2k.c: In function ‘output_b2k’:
+output_b2k.c:39:6: warning: implicit declaration of function ‘time_for_new_file’ [-Wimplicit-function-declaration]
+  if (time_for_new_file(hdr))
+      ^
+output_b2k.c:42:4: warning: implicit declaration of function ‘close_b2k_file’ [-Wimplicit-function-declaration]
+    close_b2k_file();
+    ^
+output_b2k.c:44:3: warning: implicit declaration of function ‘open_file’ [-Wimplicit-function-declaration]
+   open_file(hdr);
+   ^
+output_b2k.c: In function ‘close_b2k_file’:
+output_b2k.c:84:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+output_b2k.c: In function ‘open_file’:
+output_b2k.c:157:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+gcc  -I../Include -O -Wall   -c -o output_stn_chn_comments.o output_stn_chn_comments.c
+In file included from output_stn_chn_comments.c:35:0:
+../Include/resp_defs.h:5:14: warning: ‘fld_pref’ defined but not used [-Wunused-variable]
+ static char *fld_pref="F";             /* used as field designator prefix */
+              ^
+output_stn_chn_comments.c: In function ‘output_stn_comments’:
+output_stn_chn_comments.c:45:2: warning: ignoring return value of ‘getcwd’, declared with attribute warn_unused_result [-Wunused-result]
+  getcwd(orig_dir, MAXPATHLEN);
+  ^
+output_stn_chn_comments.c:47:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(output_dir);
+  ^
+output_stn_chn_comments.c:67:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(orig_dir);
+  ^
+output_stn_chn_comments.c: In function ‘output_chn_comments’:
+output_stn_chn_comments.c:76:2: warning: ignoring return value of ‘getcwd’, declared with attribute warn_unused_result [-Wunused-result]
+  getcwd(orig_dir, MAXPATHLEN);
+  ^
+output_stn_chn_comments.c:78:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(output_dir);
+  ^
+output_stn_chn_comments.c:112:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(orig_dir);
+  ^
+output_stn_chn_comments.c: In function ‘output_stn_chn_comments’:
+output_stn_chn_comments.c:124:2: warning: ignoring return value of ‘getcwd’, declared with attribute warn_unused_result [-Wunused-result]
+  getcwd(orig_dir, MAXPATHLEN);
+  ^
+output_stn_chn_comments.c:126:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(output_dir);
+  ^
+output_stn_chn_comments.c:168:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(orig_dir);
+  ^
+gcc  -I../Include -O -Wall   -c -o atc.o atc.c
+atc.c: In function ‘atc_add’:
+atc.c:63:3: warning: ‘return’ with no value, in function returning non-void
+   return;
+   ^
+atc.c:66:3: warning: ‘return’ with no value, in function returning non-void
+   return;
+   ^
+In file included from atc.c:2:0:
+../Include/rdseed.h:93:18: warning: implicit declaration of function ‘save_myfprintf’ [-Wimplicit-function-declaration]
+ #define fprintf  save_myfprintf
+                  ^
+atc.c:72:17: note: in expansion of macro ‘fprintf’
+                 fprintf(stderr, "Error ! atc_add(): out of memory\n");
+                 ^
+atc.c:79:6: warning: implicit declaration of function ‘split’ [-Wimplicit-function-declaration]
+  n = split(atc_line, &parts, '|');
+      ^
+atc.c:160:2: warning: implicit declaration of function ‘fuse’ [-Wimplicit-function-declaration]
+  fuse(&parts, n);
+  ^
+atc.c: In function ‘fetch’:
+atc.c:231:7: warning: implicit declaration of function ‘wstrcmp’ [-Wimplicit-function-declaration]
+   if (wstrcmp(s, atc->stn, strlen(s)) != 0)
+       ^
+atc.c:257:3: warning: implicit declaration of function ‘timecvt’ [-Wimplicit-function-declaration]
+   timecvt(&atc_start, atc->start);
+   ^
+atc.c: In function ‘atc_load’:
+atc.c:341:8: warning: implicit declaration of function ‘chk_station’ [-Wimplicit-function-declaration]
+   if (!chk_station(t74->station))
+        ^
+atc.c:347:8: warning: implicit declaration of function ‘chk_network’ [-Wimplicit-function-declaration]
+   if (!chk_network(t74->network_code))
+        ^
+atc.c:352:8: warning: implicit declaration of function ‘chk_location’ [-Wimplicit-function-declaration]
+   if (!chk_location(t74->location))
+        ^
+atc.c:361:8: warning: implicit declaration of function ‘chk_time’ [-Wimplicit-function-declaration]
+   if (!chk_time(s_time, e_time))
+        ^
+atc.c:374:18: warning: implicit declaration of function ‘get_blk_1000_Lrecl’ [-Wimplicit-function-declaration]
+          LRECL = get_blk_1000_Lrecl(f);
+                  ^
+atc.c:404:5: warning: implicit declaration of function ‘extract_atc_lines’ [-Wimplicit-function-declaration]
+     extract_atc_lines(&buffer[fsdh->bod]);
+     ^
+atc.c: In function ‘extract_atc_lines’:
+atc.c:434:2: warning: ‘return’ with no value, in function returning non-void
+  return;
+  ^
+make[1]: Leaving directory '/home/cps/TCPS/PROGRAMS.330/IRIS/rdseedv5.3.slu/Main'
+cd Ah; make CFLAGS="-I../Include -O -Wall" all
+make[1]: Entering directory '/home/cps/TCPS/PROGRAMS.330/IRIS/rdseedv5.3.slu/Ah'
+gcc  -I../Include -O -Wall   -c -o ioroutin.o ioroutin.c
+ioroutin.c: In function ‘gethead’:
+ioroutin.c:71:4: warning: implicit declaration of function ‘get_null_head’ [-Wimplicit-function-declaration]
+    get_null_head(head);
+    ^
+ioroutin.c: In function ‘out_is_tty’:
+ioroutin.c:442:5: warning: implicit declaration of function ‘isatty’ [-Wimplicit-function-declaration]
+  if(isatty(1)) /* sun specific --- stdout */
+     ^
+ioroutin.c: At top level:
+ioroutin.c:486:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ get_null_head(hed)
+ ^
+ioroutin.c: In function ‘get_null_head’:
+ioroutin.c:535:2: warning: ‘return’ with no value, in function returning non-void
+  return;
+  ^
+ioroutin.c: In function ‘xdr_gethead’:
+ioroutin.c:639:13: warning: implicit declaration of function ‘xdr_ahhead’ [-Wimplicit-function-declaration]
+  if((ierr = xdr_ahhead(xdrs, head)) == 1)
+             ^
+ioroutin.c: At top level:
+ioroutin.c:1097:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ xdr_ahhead(xdrsp, ahheadp)
+ ^
+make[1]: Leaving directory '/home/cps/TCPS/PROGRAMS.330/IRIS/rdseedv5.3.slu/Ah'
+cd Decoders; make CFLAGS="-I../Include -O -Wall" all
+make[1]: Entering directory '/home/cps/TCPS/PROGRAMS.330/IRIS/rdseedv5.3.slu/Decoders'
+gcc  -I../Include -O -Wall   -c -o convert_seedhdr.o convert_seedhdr.c
+convert_seedhdr.c: In function ‘convert_seedhdr’:
+convert_seedhdr.c:61:20: warning: unused variable ‘temptime’ [-Wunused-variable]
+  struct input_time temptime; /* temp for byte-swapping */
+                    ^
+gcc  -I../Include -O -Wall   -c -o decode_echery.o decode_echery.c
+gcc  -I../Include -O -Wall   -c -o decode_graef.o decode_graef.c
+decode_graef.c: In function ‘decode_graef’:
+decode_graef.c:20:22: warning: unused variable ‘tim2’ [-Wunused-variable]
+  unsigned int tim1 , tim2;
+                      ^
+decode_graef.c:20:15: warning: unused variable ‘tim1’ [-Wunused-variable]
+  unsigned int tim1 , tim2;
+               ^
+decode_graef.c:17:6: warning: unused variable ‘mult’ [-Wunused-variable]
+  int mult;         /* multiplier for terms above */
+      ^
+gcc  -I../Include -O -Wall   -c -o decode_rstn.o decode_rstn.c
+decode_rstn.c: In function ‘decode_rstn’:
+decode_rstn.c:71:6: warning: variable ‘exponent’ set but not used [-Wunused-but-set-variable]
+  int exponent;        /* total exponent */
+      ^
+decode_rstn.c:67:6: warning: variable ‘base’ set but not used [-Wunused-but-set-variable]
+  int base;         /* base for exponentiation */
+      ^
+gcc  -I../Include -O -Wall   -c -o decode_32bit.o decode_32bit.c
+decode_32bit.c: In function ‘decode_32bit’:
+decode_32bit.c:56:9: warning: unused variable ‘sav_ptr’ [-Wunused-variable]
+ double *sav_ptr = seismic_data_ptr;
+         ^
+gcc  -I../Include -O -Wall   -c -o decode_16bit.o decode_16bit.c
+decode_16bit.c: In function ‘decode_16bit’:
+decode_16bit.c:43:22: warning: unused variable ‘temp_u2byte’ [-Wunused-variable]
+  unsigned short int *temp_u2byte;/* temp for byte swapping */
+                      ^
+gcc  -I../Include -O -Wall   -c -o decode_ieeefloat.o decode_ieeefloat.c
+gcc  -I../Include -O -Wall   -c -o decode_ieeedouble.o decode_ieeedouble.c
+decode_ieeedouble.c: In function ‘decode_ieeedouble’:
+decode_ieeedouble.c:40:9: warning: unused variable ‘d’ [-Wunused-variable]
+  double d;
+         ^
+gcc  -I../Include -O -Wall   -c -o decode_asro.o decode_asro.c
+decode_asro.c: In function ‘decode_asro’:
+decode_asro.c:72:9: warning: unused variable ‘sav_ptr’ [-Wunused-variable]
+ double *sav_ptr = seismic_data_ptr;
+         ^
+gcc  -I../Include -O -Wall   -c -o decode_cdsn.o decode_cdsn.c
+decode_cdsn.c: In function ‘decode_cdsn’:
+decode_cdsn.c:109:9: warning: unused variable ‘sav_ptr’ [-Wunused-variable]
+ double *sav_ptr = seismic_data_ptr;
+         ^
+decode_cdsn.c:107:5: warning: unused variable ‘ix’ [-Wunused-variable]
+ int ix = 0;
+     ^
+decode_cdsn.c:105:9: warning: unused variable ‘sample’ [-Wunused-variable]
+  double sample;        /* sample value */
+         ^
+decode_cdsn.c:150:42: warning: ‘mult’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+   *seismic_data_ptr = (double) (mantissa << mult);
+                                          ^
+gcc  -I../Include -O -Wall   -c -o decode_dwwssn.o decode_dwwssn.c
+decode_dwwssn.c: In function ‘decode_dwwssn’:
+decode_dwwssn.c:54:9: warning: unused variable ‘sav_ptr’ [-Wunused-variable]
+ double *sav_ptr = seismic_data_ptr;
+         ^
+gcc  -I../Include -O -Wall   -c -o decode_sro.o decode_sro.c
+gcc  -I../Include -O -Wall   -c -o decode_steim.o decode_steim.c
+decode_steim.c: In function ‘decode_steim’:
+decode_steim.c:73:10: warning: variable ‘sav_ptr’ set but not used [-Wunused-but-set-variable]
+  double *sav_ptr;
+          ^
+decode_steim.c:72:8: warning: unused variable ‘fp’ [-Wunused-variable]
+  FILE *fp;
+        ^
+decode_steim.c:62:6: warning: variable ‘final_value’ set but not used [-Wunused-but-set-variable]
+  int final_value;  /* last value, this blk */
+      ^
+decode_steim.c:54:22: warning: unused variable ‘temp_u2byte’ [-Wunused-variable]
+  unsigned short int *temp_u2byte;/* temp for byte swapping */
+                      ^
+decode_steim.c: At top level:
+decode_steim.c:44:12: warning: ‘samp_cnter’ defined but not used [-Wunused-variable]
+ static int samp_cnter;
+            ^
+gcc  -I../Include -O -Wall   -c -o decode_geoscope.o decode_geoscope.c
+decode_geoscope.c: In function ‘decode_geoscope’:
+decode_geoscope.c:75:6: warning: variable ‘add2result’ set but not used [-Wunused-but-set-variable]
+  int add2result;  /* added to result above */
+      ^
+decode_geoscope.c:74:6: warning: variable ‘mult’ set but not used [-Wunused-but-set-variable]
+  int mult;  /* multiplier for terms above */
+      ^
+decode_geoscope.c:73:6: warning: variable ‘add2gr’ set but not used [-Wunused-but-set-variable]
+  int add2gr;  /* added to gainrange factor */
+      ^
+gcc  -I../Include -O -Wall   -c -o decode_ddl.o decode_ddl.c
+decode_ddl.c:200:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ d_D(prim)
+ ^
+decode_ddl.c:280:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ d_C(prim)
+ ^
+decode_ddl.c:310:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ d_S1(prim)
+ ^
+decode_ddl.c:324:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ d_S2(prim)
+ ^
+decode_ddl.c:364:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ d_A(prim)
+ ^
+decode_ddl.c:375:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ d_O(prim)
+ ^
+decode_ddl.c:382:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ d_J(prim)
+ ^
+decode_ddl.c:389:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ d_M(prim)
+ ^
+decode_ddl.c:396:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ d_I(prim)
+ ^
+decode_ddl.c:404:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ d_F(prim)
+ ^
+decode_ddl.c:417:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ d_R(prim)
+ ^
+decode_ddl.c:430:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ d_P(prim)
+ ^
+decode_ddl.c: In function ‘d_P’:
+decode_ddl.c:450:2: warning: ‘return’ with no value, in function returning non-void
+  return;
+  ^
+decode_ddl.c:433:10: warning: unused variable ‘num_bytes’ [-Wunused-variable]
+  int i,j,num_bytes;
+          ^
+decode_ddl.c:433:8: warning: unused variable ‘j’ [-Wunused-variable]
+  int i,j,num_bytes;
+        ^
+decode_ddl.c: At top level:
+decode_ddl.c:453:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ d_E(prim)
+ ^
+decode_ddl.c: In function ‘d_E’:
+decode_ddl.c:462:2: warning: ‘return’ with no value, in function returning non-void
+  return;
+  ^
+decode_ddl.c: At top level:
+decode_ddl.c:465:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ d_Z(prim)
+ ^
+decode_ddl.c: In function ‘d_Z’:
+decode_ddl.c:473:2: warning: ‘return’ with no value, in function returning non-void
+  return;
+  ^
+decode_ddl.c: At top level:
+decode_ddl.c:476:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ d_H(prim)
+ ^
+decode_ddl.c: In function ‘d_H’:
+decode_ddl.c:482:2: warning: ‘return’ with no value, in function returning non-void
+  return;
+  ^
+decode_ddl.c: In function ‘decode_int’:
+decode_ddl.c:532:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;
+      ^
+decode_ddl.c: In function ‘decode_key_cmp1’:
+decode_ddl.c:608:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;
+      ^
+decode_ddl.c: In function ‘decode_key_cmp2’:
+decode_ddl.c:655:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;
+      ^
+decode_ddl.c: In function ‘decode_ddl’:
+decode_ddl.c:772:12: warning: unused variable ‘k’ [-Wunused-variable]
+  int i, j, k;  /* counters */
+            ^
+decode_ddl.c:772:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i, j, k;  /* counters */
+      ^
+decode_ddl.c: In function ‘d_D’:
+decode_ddl.c:278:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+decode_ddl.c: In function ‘d_C’:
+decode_ddl.c:308:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+decode_ddl.c: In function ‘d_S1’:
+decode_ddl.c:322:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+decode_ddl.c: In function ‘d_S2’:
+decode_ddl.c:362:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+decode_ddl.c: In function ‘d_A’:
+decode_ddl.c:373:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+decode_ddl.c: In function ‘d_O’:
+decode_ddl.c:380:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+decode_ddl.c: In function ‘d_J’:
+decode_ddl.c:387:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+decode_ddl.c: In function ‘d_M’:
+decode_ddl.c:394:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+decode_ddl.c: In function ‘d_I’:
+decode_ddl.c:402:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+decode_ddl.c: In function ‘d_F’:
+decode_ddl.c:415:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+decode_ddl.c: In function ‘d_R’:
+decode_ddl.c:428:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+gcc  -I../Include -O -Wall   -c -o decode_usnsn.o decode_usnsn.c
+decode_usnsn.c: In function ‘decode_usnsn’:
+decode_usnsn.c:33:10: warning: implicit declaration of function ‘dcmprs’ [-Wimplicit-function-declaration]
+  error = dcmprs(data_hdr->nsamples, &n, 
+          ^
+decode_usnsn.c:17:9: warning: variable ‘error’ set but not used [-Wunused-but-set-variable]
+  int i, error, n = -1, eod, overflow;
+         ^
+decode_usnsn.c: At top level:
+decode_usnsn.c:65:25: warning: missing braces around initializer [-Wmissing-braces]
+ static int nib[3][16] = {4, 4, 4, 6, 6, 8, 8,10,10,12,14,16,20,24,28,32,
+                         ^
+decode_usnsn.c:65:25: note: (near initialization for ‘nib’)
+decode_usnsn.c: In function ‘dcmprs’:
+decode_usnsn.c:104:4: warning: implicit declaration of function ‘gnible’ [-Wimplicit-function-declaration]
+    gnible(icmp,&ia0,&ipt,32,1,1,1);
+    ^
+decode_usnsn.c:136:7: warning: implicit declaration of function ‘unpacknsn’ [-Wimplicit-function-declaration]
+       unpacknsn(maxx-*n-1,&nn,&idat[*n+1],&fin,ovr,eod,icmp);
+       ^
+decode_usnsn.c: At top level:
+decode_usnsn.c:153:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ unpacknsn(maxx,n,idat,fin,ovr,eod,icmp)
+ ^
+decode_usnsn.c: In function ‘unpacknsn’:
+decode_usnsn.c:185:7: warning: ‘return’ with no value, in function returning non-void
+       return;
+       ^
+decode_usnsn.c:252:46: warning: ‘return’ with no value, in function returning non-void
+    if(*ovr != 0 || (ifr%7 != 0 && *fin ==0)) return;
+                                              ^
+decode_usnsn.c:265:33: warning: ‘return’ with no value, in function returning non-void
+    if(*fin == 0 || ipt > NBK-4) return;
+                                 ^
+decode_usnsn.c:267:17: warning: ‘return’ with no value, in function returning non-void
+    if(lpt == 0) return;
+                 ^
+decode_usnsn.c:289:4: warning: ‘return’ with no value, in function returning non-void
+    return;
+    ^
+decode_usnsn.c: At top level:
+decode_usnsn.c:293:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ gnible(ib,ia,ns,nb,n,nrun,sgn)
+ ^
+decode_usnsn.c: In function ‘gnible’:
+decode_usnsn.c:357:33: warning: suggest parentheses around comparison in operand of ‘&’ [-Wparentheses]
+                if((*ka&isgn[kb])!=0 & sgn!=0) 
+                                 ^
+decode_usnsn.c:401:33: warning: suggest parentheses around comparison in operand of ‘&’ [-Wparentheses]
+                if((*ka&isgn[kb])!=0 & sgn!=0) 
+                                 ^
+decode_usnsn.c:426:33: warning: suggest parentheses around comparison in operand of ‘&’ [-Wparentheses]
+                if((*ka&isgn[kb])!=0 & sgn!=0) ia[i] = (*ka|msgn[kb]);
+                                 ^
+decode_usnsn.c:442:4: warning: ‘return’ with no value, in function returning non-void
+    return;
+    ^
+decode_usnsn.c: At top level:
+decode_usnsn.c:446:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ dcmpbr()
+ ^
+decode_usnsn.c: In function ‘dcmpbr’:
+decode_usnsn.c:453:4: warning: ‘return’ with no value, in function returning non-void
+    return;
+    ^
+decode_usnsn.c: At top level:
+decode_usnsn.c:456:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ dcmper(ierr)
+ ^
+decode_usnsn.c: In function ‘dcmper’:
+decode_usnsn.c:486:4: warning: ‘return’ with no value, in function returning non-void
+    return;
+    ^
+decode_usnsn.c: At top level:
+decode_usnsn.c:4:12: warning: ‘cnt’ defined but not used [-Wunused-variable]
+ static int cnt = 0;
+            ^
+gcc  -I../Include -O -Wall   -c -o decode_steim2.o decode_steim2.c
+decode_steim2.c: In function ‘decode_steim2’:
+decode_steim2.c:70:1: warning: "/*" within comment [-Wcomment]
+ /*                 +=======================================+                 */
+ ^
+decode_steim2.c:66:8: warning: unused variable ‘fp’ [-Wunused-variable]
+  FILE *fp;
+        ^
+decode_steim2.c:56:6: warning: variable ‘final_value’ set but not used [-Wunused-but-set-variable]
+  int final_value;  /* last value, this blk */
+      ^
+decode_steim2.c:49:13: warning: unused variable ‘temp_2byte’ [-Wunused-variable]
+  short int *temp_2byte;  /* temp for byte swapping */
+             ^
+decode_steim2.c:48:22: warning: unused variable ‘temp_u2byte’ [-Wunused-variable]
+  unsigned short int *temp_u2byte;/* temp for byte swapping */
+                      ^
+decode_steim2.c:180:16: warning: ‘last_value’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+         sample = (double) temp + last_value;
+                ^
+gcc  -I../Include -O -Wall   -c -o init_data_hdr.o init_data_hdr.c
+gcc  -I../Include -O -Wall   -c -o process_time_span.o process_time_span.c
+process_time_span.c:49:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ process_time_span_index()
+ ^
+process_time_span.c: In function ‘process_time_span_index’:
+process_time_span.c:54:3: warning: implicit declaration of function ‘process_type73’ [-Wimplicit-function-declaration]
+   process_type73 ();
+   ^
+process_time_span.c:55:3: warning: implicit declaration of function ‘flush_type73’ [-Wimplicit-function-declaration]
+   flush_type73 ();
+   ^
+process_time_span.c:60:3: warning: implicit declaration of function ‘process_type74’ [-Wimplicit-function-declaration]
+   process_type74 (); 
+   ^
+process_time_span.c: At top level:
+process_time_span.c:72:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ process_type73()
+ ^
+process_time_span.c: In function ‘process_type73’:
+process_time_span.c:83:8: warning: implicit declaration of function ‘chk_station’ [-Wimplicit-function-declaration]
+    if (chk_station(type73->datapiece[i].station) && 
+        ^
+process_time_span.c:84:8: warning: implicit declaration of function ‘chk_channel’ [-Wimplicit-function-declaration]
+        chk_channel(type73->datapiece[i].channel))
+        ^
+process_time_span.c: At top level:
+process_time_span.c:109:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ process_type74()
+ ^
+process_time_span.c: In function ‘process_type74’:
+process_time_span.c:118:7: warning: implicit declaration of function ‘this_timespan_needed’ [-Wimplicit-function-declaration]
+   if (this_timespan_needed(type74))
+       ^
+process_time_span.c:119:4: warning: implicit declaration of function ‘extract_this_timespan’ [-Wimplicit-function-declaration]
+    extract_this_timespan(type74);
+    ^
+process_time_span.c: In function ‘extract_this_timespan’:
+process_time_span.c:147:10: warning: implicit declaration of function ‘get_stn_chn_Lrecl’ [-Wimplicit-function-declaration]
+  LRECL = get_stn_chn_Lrecl(t74->station,
+          ^
+In file included from process_time_span.c:37:0:
+../Include/rdseed.h:93:18: warning: implicit declaration of function ‘save_myfprintf’ [-Wimplicit-function-declaration]
+ #define fprintf  save_myfprintf
+                  ^
+process_time_span.c:157:3: note: in expansion of macro ‘fprintf’
+   fprintf(stderr, "Bad logical record length scanned for station %s; channel %s:location:%s. Assuming logical record length of %d\n", 
+   ^
+process_time_span.c:170:11: warning: implicit declaration of function ‘get_blk_1000_Lrecl’ [-Wimplicit-function-declaration]
+   LRECL = get_blk_1000_Lrecl(inputfile);
+           ^
+process_time_span.c: In function ‘this_timespan_needed’:
+process_time_span.c:224:2: warning: implicit declaration of function ‘timecvt’ [-Wimplicit-function-declaration]
+  timecvt(&s_time, t_74->starttime);
+  ^
+process_time_span.c:233:7: warning: implicit declaration of function ‘chk_network’ [-Wimplicit-function-declaration]
+  if (!chk_network(type10.version >= 2.3 ? t_74->network_code : ""))
+       ^
+process_time_span.c:237:7: warning: implicit declaration of function ‘chk_location’ [-Wimplicit-function-declaration]
+  if (!chk_location(t_74->location))
+       ^
+process_time_span.c:240:7: warning: implicit declaration of function ‘chk_time’ [-Wimplicit-function-declaration]
+  if (!chk_time(s_time, e_time))
+       ^
+process_time_span.c: In function ‘get_blk_1000_Lrecl’:
+process_time_span.c:275:3: warning: implicit declaration of function ‘swap_fsdh’ [-Wimplicit-function-declaration]
+   swap_fsdh(&input_data_ptr);
+   ^
+process_time_span.c:285:3: warning: ‘return’ with no value, in function returning non-void
+   return;
+   ^
+process_time_span.c: In function ‘get_LRECL’:
+process_time_span.c:358:2: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  SUBSTR(stn, ' ', 0);
+  ^
+process_time_span.c:362:2: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  SUBSTR(chn, ' ', 0);
+  ^
+process_time_span.c:366:2: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  SUBSTR(net, ' ', 0);
+  ^
+process_time_span.c:370:2: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  SUBSTR(loc, ' ', 0);
+  ^
+process_time_span.c: In function ‘process_type73’:
+process_time_span.c:103:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+process_time_span.c: In function ‘process_type74’:
+process_time_span.c:123:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+process_time_span.c: In function ‘extract_this_timespan’:
+process_time_span.c:214:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+gcc  -I../Include -O -Wall   -c -o process_event_requests.o process_event_requests.c
+process_event_requests.c:28:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ process_event_requests ()
+ ^
+process_event_requests.c: In function ‘process_event_requests’:
+process_event_requests.c:41:3: warning: implicit declaration of function ‘rdseed_strupr’ [-Wimplicit-function-declaration]
+   rdseed_strupr(start_phase_point[i].name);
+   ^
+process_event_requests.c:45:8: warning: implicit declaration of function ‘process_origin_requests’ [-Wimplicit-function-declaration]
+    if (process_origin_requests(i)) return(1);
+        ^
+process_event_requests.c:48:8: warning: implicit declaration of function ‘process_phase_requests’ [-Wimplicit-function-declaration]
+   else process_phase_requests(i);
+        ^
+process_event_requests.c: At top level:
+process_event_requests.c:59:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ process_origin_requests(phase_number)
+ ^
+process_event_requests.c: In function ‘process_origin_requests’:
+process_event_requests.c:70:4: warning: implicit declaration of function ‘timecvt’ [-Wimplicit-function-declaration]
+    timecvt(&e_time, type71->origin_time);
+    ^
+process_event_requests.c:77:8: warning: implicit declaration of function ‘origin_time_span’ [-Wimplicit-function-declaration]
+        origin_time_span(phase_number, e_time);
+        ^
+process_event_requests.c:73:8: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wparentheses]
+     if ( timecmp (e_time, event_start_time_point[phase_number]) >= 0)
+        ^
+process_event_requests.c:64:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;
+      ^
+process_event_requests.c: At top level:
+process_event_requests.c:105:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ origin_time_span(phase_number, e_time)
+ ^
+process_event_requests.c: In function ‘origin_time_span’:
+process_event_requests.c:111:43: warning: implicit declaration of function ‘timeprt’ [-Wimplicit-function-declaration]
+  fprintf(stderr, "Process origin time "); timeprt(e_time); fprintf(stderr, "\n");
+                                           ^
+process_event_requests.c:129:7: warning: implicit declaration of function ‘null_phase_time’ [-Wimplicit-function-declaration]
+   if (null_phase_time(end_phase_point[phase_number]))
+       ^
+process_event_requests.c:109:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;
+      ^
+process_event_requests.c: At top level:
+process_event_requests.c:143:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ null_phase_time(phase)
+ ^
+process_event_requests.c:162:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ process_phase_requests(phase_number)
+ ^
+process_event_requests.c: In function ‘process_phase_requests’:
+process_event_requests.c:205:8: warning: implicit declaration of function ‘phase_time_span’ [-Wimplicit-function-declaration]
+        phase_time_span(phase_number, p_time, p_time/*s_time*/);
+        ^
+process_event_requests.c:200:8: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wparentheses]
+     if ( timecmp (p_time, event_start_time_point[phase_number]) >= 0)
+        ^
+process_event_requests.c:168:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i, count;
+      ^
+process_event_requests.c: At top level:
+process_event_requests.c:253:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ phase_time_span(phase_number, p_time, s_time)
+ ^
+process_event_requests.c: In function ‘phase_time_span’:
+process_event_requests.c:257:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;
+      ^
+process_event_requests.c: In function ‘process_event_requests’:
+process_event_requests.c:51:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+process_event_requests.c: In function ‘origin_time_span’:
+process_event_requests.c:137:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+process_event_requests.c: In function ‘phase_time_span’:
+process_event_requests.c:287:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+gcc  -I../Include -O -Wall   -c -o process_data.o process_data.c
+process_data.c: In function ‘process_data’:
+process_data.c:260:9: warning: unused variable ‘p’ [-Wunused-variable]
+   char *p;
+         ^
+process_data.c:303:3: warning: implicit declaration of function ‘get_stn_chn_rec’ [-Wimplicit-function-declaration]
+   get_stn_chn_rec(this_station, 
+   ^
+process_data.c:376:2: warning: implicit declaration of function ‘parse_type100’ [-Wimplicit-function-declaration]
+  parse_type100(input_data_ptr, &this_sample_rate);
+  ^
+process_data.c:422:2: warning: implicit declaration of function ‘atc_correct’ [-Wimplicit-function-declaration]
+  atc_correct(&this_time, this_station,
+  ^
+process_data.c:527:4: warning: implicit declaration of function ‘process_opaque’ [-Wimplicit-function-declaration]
+    process_opaque(input_data_ptr, fsdh_swapped);
+    ^
+process_data.c:575:8: warning: implicit declaration of function ‘chk_time’ [-Wimplicit-function-declaration]
+   if (!chk_time(this_time, fake_time))
+        ^
+process_data.c:604:18: warning: implicit declaration of function ‘output_seed_data_file’ [-Wimplicit-function-declaration]
+                  output_seed_data_file(input_data_ptr); 
+                  ^
+process_data.c:606:18: warning: implicit declaration of function ‘update_type74’ [-Wimplicit-function-declaration]
+                  update_type74(&d_hdr);
+                  ^
+process_data.c:610:3: warning: implicit declaration of function ‘dump_LOG_rec’ [-Wimplicit-function-declaration]
+   dump_LOG_rec(input_data_ptr + (input_data_hdr->bod - 8), 
+   ^
+process_data.c:717:5: warning: implicit declaration of function ‘timetol’ [-Wimplicit-function-declaration]
+    (timetol (newtime, this_time, last_nsamples, this_sample_rate) == 0))
+     ^
+process_data.c:993:3: warning: implicit declaration of function ‘rdseed_strupr’ [-Wimplicit-function-declaration]
+   rdseed_strupr(decode);     /* make all upper case comparisons */
+   ^
+process_data.c:1018:4: warning: implicit declaration of function ‘decode_16bit’ [-Wimplicit-function-declaration]
+    decode_16bit(input_data_ptr, this_nsamples, next_index);
+    ^
+process_data.c:1024:4: warning: implicit declaration of function ‘decode_graef’ [-Wimplicit-function-declaration]
+    decode_graef(input_data_ptr, this_nsamples, next_index);
+    ^
+process_data.c:1028:4: warning: implicit declaration of function ‘decode_steim2’ [-Wimplicit-function-declaration]
+    decode_steim2(input_data_ptr, this_nsamples, next_index);
+    ^
+process_data.c:1034:4: warning: implicit declaration of function ‘decode_echery’ [-Wimplicit-function-declaration]
+    decode_echery(input_data_ptr, this_nsamples, next_index);
+    ^
+process_data.c:1036:4: warning: implicit declaration of function ‘decode_rstn’ [-Wimplicit-function-declaration]
+    decode_rstn(input_data_ptr, this_nsamples, next_index);
+    ^
+process_data.c:1040:4: warning: implicit declaration of function ‘decode_ieeefloat’ [-Wimplicit-function-declaration]
+    decode_ieeefloat(input_data_ptr, this_nsamples, next_index);
+    ^
+process_data.c:1042:4: warning: implicit declaration of function ‘decode_ieeedouble’ [-Wimplicit-function-declaration]
+    decode_ieeedouble(input_data_ptr, this_nsamples, next_index);
+    ^
+process_data.c:1044:4: warning: implicit declaration of function ‘decode_geoscope’ [-Wimplicit-function-declaration]
+    decode_geoscope (input_data_ptr, 
+    ^
+process_data.c:1050:4: warning: implicit declaration of function ‘decode_usnsn’ [-Wimplicit-function-declaration]
+    decode_usnsn(input_data_ptr, input_data_hdr);
+    ^
+process_data.c:1052:4: warning: implicit declaration of function ‘decode_ddl’ [-Wimplicit-function-declaration]
+    decode_ddl(input_data_ptr, this_nsamples, next_index, this_type30);
+    ^
+process_data.c:155:20: warning: unused variable ‘temptime’ [-Wunused-variable]
+  struct input_time temptime; /* temp for byte-swapping */
+                    ^
+process_data.c:154:21: warning: unused variable ‘temp_u2byte’ [-Wunused-variable]
+  unsigned short int temp_u2byte; /* temp for byte-swapping */
+                     ^
+process_data.c:153:6: warning: unused variable ‘temp_4byte’ [-Wunused-variable]
+  int temp_4byte;   /* temp for byte-swapping */
+      ^
+process_data.c:152:12: warning: unused variable ‘temp_2byte’ [-Wunused-variable]
+  short int temp_2byte;  /* temp for byte-swapping */
+            ^
+process_data.c:146:8: warning: unused variable ‘p_station’ [-Wunused-variable]
+       *p_station;  /* pointer save locations */
+        ^
+process_data.c:142:8: warning: unused variable ‘p_channel’ [-Wunused-variable]
+       *p_channel; /* pointer save locations */
+        ^
+process_data.c: In function ‘get_station_rec’:
+process_data.c:1129:2: warning: implicit declaration of function ‘trim’ [-Wimplicit-function-declaration]
+  trim(stn);
+  ^
+process_data.c:1142:3: warning: implicit declaration of function ‘timecvt’ [-Wimplicit-function-declaration]
+   timecvt(&start, p->start);
+   ^
+process_data.c: In function ‘dump_seismic_buffer’:
+process_data.c:1611:2: warning: implicit declaration of function ‘time_span_out’ [-Wimplicit-function-declaration]
+  time_span_out();
+  ^
+process_data.c: In function ‘swap_fsdh’:
+process_data.c:1695:3: warning: implicit declaration of function ‘blockette_swap’ [-Wimplicit-function-declaration]
+   blockette_swap(*input_data_ptr + input_data_hdr->bofb - 8);
+   ^
+process_data.c: In function ‘process_opaque’:
+process_data.c:1905:9: warning: implicit declaration of function ‘process_blk_2k’ [-Wimplicit-function-declaration]
+     if (process_blk_2k(hdr, ptr, rec_length) == 0)
+         ^
+process_data.c:1881:13: warning: unused variable ‘rec’ [-Wunused-variable]
+         int rec, rec_length;
+             ^
+process_data.c: In function ‘printBlks’:
+process_data.c:1940:17: warning: ‘return’ with no value, in function returning non-void
+                 return;
+                 ^
+process_data.c:1950:17: warning: ‘return’ with no value, in function returning non-void
+                 return;
+                 ^
+process_data.c:1933:13: warning: unused variable ‘i’ [-Wunused-variable]
+         int i;                                  /*counter */
+             ^
+process_data.c: In function ‘dump_station_effective’:
+process_data.c:1499:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+process_data.c: In function ‘process_data’:
+process_data.c:1052:4: warning: ‘next_index’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    decode_ddl(input_data_ptr, this_nsamples, next_index, this_type30);
+    ^
+make[1]: Leaving directory '/home/cps/TCPS/PROGRAMS.330/IRIS/rdseedv5.3.slu/Decoders'
+cd Parsers; make CFLAGS="-I../Include -O -Wall" all
+make[1]: Entering directory '/home/cps/TCPS/PROGRAMS.330/IRIS/rdseedv5.3.slu/Parsers'
+gcc  -I../Include -O -Wall   -c -o get_response.o get_response.c
+gcc  -I../Include -O -Wall   -c -o parse_key.o parse_key.c
+parse_key.c: In function ‘is_num_str’:
+parse_key.c:34:7: warning: implicit declaration of function ‘isdigit’ [-Wimplicit-function-declaration]
+   if (isdigit(*string)) string++;
+       ^
+parse_key.c: In function ‘get_pair’:
+parse_key.c:137:9: warning: unused variable ‘l’ [-Wunused-variable]
+  int i, l;
+         ^
+gcc  -I../Include -O -Wall   -c -o parse_10.o parse_10.c
+gcc  -I../Include -O -Wall   -c -o parse_11.o parse_11.c
+gcc  -I../Include -O -Wall   -c -o parse_12.o parse_12.c
+gcc  -I../Include -O -Wall   -c -o parse_30.o parse_30.c
+gcc  -I../Include -O -Wall   -c -o parse_31.o parse_31.c
+gcc  -I../Include -O -Wall   -c -o parse_32.o parse_32.c
+gcc  -I../Include -O -Wall   -c -o parse_33.o parse_33.c
+gcc  -I../Include -O -Wall   -c -o parse_34.o parse_34.c
+gcc  -I../Include -O -Wall   -c -o parse_35.o parse_35.c
+gcc  -I../Include -O -Wall   -c -o parse_41.o parse_41.c
+parse_41.c: In function ‘parse_type41’:
+parse_41.c:41:19: warning: unused variable ‘response’ [-Wunused-variable]
+  struct response *response;     /* channel response ptr */
+                   ^
+gcc  -I../Include -O -Wall   -c -o parse_42.o parse_42.c
+parse_42.c: In function ‘parse_type42’:
+parse_42.c:39:19: warning: unused variable ‘response’ [-Wunused-variable]
+  struct response *response;  /* channel response ptr */
+                   ^
+gcc  -I../Include -O -Wall   -c -o parse_43.o parse_43.c
+parse_43.c: In function ‘parse_type43’:
+parse_43.c:44:19: warning: unused variable ‘response’ [-Wunused-variable]
+  struct response *response;     /* channel response ptr */
+                   ^
+gcc  -I../Include -O -Wall   -c -o parse_44.o parse_44.c
+parse_44.c: In function ‘parse_type44’:
+parse_44.c:43:19: warning: unused variable ‘response’ [-Wunused-variable]
+  struct response *response;     /* channel response ptr */
+                   ^
+gcc  -I../Include -O -Wall   -c -o parse_45.o parse_45.c
+parse_45.c: In function ‘parse_type45’:
+parse_45.c:41:19: warning: unused variable ‘response’ [-Wunused-variable]
+  struct response *response;     /* channel response ptr */
+                   ^
+gcc  -I../Include -O -Wall   -c -o parse_46.o parse_46.c
+parse_46.c: In function ‘parse_type46’:
+parse_46.c:41:19: warning: unused variable ‘response’ [-Wunused-variable]
+  struct response *response;     /* channel response ptr */
+                   ^
+gcc  -I../Include -O -Wall   -c -o parse_47.o parse_47.c
+parse_47.c: In function ‘parse_type47’:
+parse_47.c:39:19: warning: unused variable ‘response’ [-Wunused-variable]
+  struct response *response;     /* channel response ptr */
+                   ^
+parse_47.c:38:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;          /* counter */
+      ^
+gcc  -I../Include -O -Wall   -c -o parse_48.o parse_48.c
+parse_48.c: In function ‘parse_type48’:
+parse_48.c:40:19: warning: unused variable ‘response’ [-Wunused-variable]
+  struct response *response;     /* channel response ptr */
+                   ^
+gcc  -I../Include -O -Wall   -c -o parse_50.o parse_50.c
+parse_50.c: In function ‘parse_type50’:
+parse_50.c:107:8: warning: implicit declaration of function ‘isprint’ [-Wimplicit-function-declaration]
+   if(! isprint(type50.name[i])) type50.name[i] = '\0';
+        ^
+parse_50.c:133:2: warning: implicit declaration of function ‘timecvt’ [-Wimplicit-function-declaration]
+  timecvt(&stn_start_struct, type50.start);
+  ^
+parse_50.c:143:7: warning: implicit declaration of function ‘chk_time’ [-Wimplicit-function-declaration]
+  if (!chk_time(stn_start_struct, stn_end_struct))
+       ^
+gcc  -I../Include -O -Wall   -c -o parse_51.o parse_51.c
+parse_51.c: In function ‘parse_type51’:
+parse_51.c:75:9: warning: implicit declaration of function ‘timecvt’ [-Wimplicit-function-declaration]
+         timecvt(&stn_comm_start_struct, type51->start);
+         ^
+parse_51.c:85:14: warning: implicit declaration of function ‘chk_time’ [-Wimplicit-function-declaration]
+         if (!chk_time(stn_comm_start_struct, stn_comm_end_struct))
+              ^
+gcc  -I../Include -O -Wall   -c -o parse_52.o parse_52.c
+parse_52.c: In function ‘parse_type52’:
+parse_52.c:146:9: warning: implicit declaration of function ‘timecvt’ [-Wimplicit-function-declaration]
+         timecvt(&chn_start_struct, type52.start);
+         ^
+parse_52.c:155:14: warning: implicit declaration of function ‘chk_time’ [-Wimplicit-function-declaration]
+         if (!chk_time(chn_start_struct, chn_end_struct))
+              ^
+parse_52.c:175:23: warning: implicit declaration of function ‘determine_orient_code’ [-Wimplicit-function-declaration]
+   type52.channel[2] = determine_orient_code(&type52); 
+                       ^
+parse_52.c: In function ‘tag_channel_rec’:
+parse_52.c:274:3: warning: implicit declaration of function ‘dump_station_effective’ [-Wimplicit-function-declaration]
+   dump_station_effective(current_station->station, 
+   ^
+parse_52.c:297:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+parse_52.c: In function ‘dump_stn_chn_recs’:
+parse_52.c:328:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+gcc  -I../Include -O -Wall   -c -o parse_53.o parse_53.c
+gcc  -I../Include -O -Wall   -c -o parse_54.o parse_54.c
+gcc  -I../Include -O -Wall   -c -o parse_55.o parse_55.c
+gcc  -I../Include -O -Wall   -c -o parse_56.o parse_56.c
+gcc  -I../Include -O -Wall   -c -o parse_57.o parse_57.c
+parse_57.c: In function ‘parse_type57’:
+parse_57.c:40:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;          /* counter */
+      ^
+gcc  -I../Include -O -Wall   -c -o parse_58.o parse_58.c
+gcc  -I../Include -O -Wall   -c -o parse_59.o parse_59.c
+parse_59.c: In function ‘parse_type59’:
+parse_59.c:82:9: warning: implicit declaration of function ‘timecvt’ [-Wimplicit-function-declaration]
+         timecvt(&chn_comm_start_struct, type59->start);
+         ^
+parse_59.c:91:14: warning: implicit declaration of function ‘chk_time’ [-Wimplicit-function-declaration]
+         if (!chk_time(chn_comm_start_struct, chn_comm_end_struct))
+              ^
+parse_59.c:44:6: warning: unused variable ‘wrkstr’ [-Wunused-variable]
+ char wrkstr[200];
+      ^
+parse_59.c:43:5: warning: unused variable ‘size’ [-Wunused-variable]
+ int size;
+     ^
+parse_59.c:42:7: warning: unused variable ‘fptr’ [-Wunused-variable]
+ FILE *fptr;
+       ^
+gcc  -I../Include -O -Wall   -c -o parse_60.o parse_60.c
+gcc  -I../Include -O -Wall   -c -o parse_61.o parse_61.c
+gcc  -I../Include -O -Wall   -c -o parse_62.o parse_62.c
+gcc  -I../Include -O -Wall   -c -o parse_70.o parse_70.c
+gcc  -I../Include -O -Wall   -c -o parse_71.o parse_71.c
+parse_71.c: In function ‘parse_type71’:
+parse_71.c:58:3: warning: implicit declaration of function ‘update_type71’ [-Wimplicit-function-declaration]
+   update_type71(blockette);
+   ^
+gcc  -I../Include -O -Wall   -c -o parse_72.o parse_72.c
+gcc  -I../Include -O -Wall   -c -o parse_73.o parse_73.c
+parse_73.c:97:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ flush_type73()
+ ^
+parse_73.c: In function ‘flush_type73’:
+parse_73.c:105:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+gcc  -I../Include -O -Wall   -c -o parse_74.o parse_74.c
+gcc  -I../Include -O -Wall   -c -o parse_100.o parse_100.c
+parse_100.c: In function ‘parse_type100’:
+parse_100.c:45:23: warning: unused variable ‘blk_100’ [-Wunused-variable]
+  struct data_blk_100 *blk_100;  /* blockette 100 pointer */
+                       ^
+gcc  -I../Include -O -Wall   -c -o parse_2k.o parse_2k.c
+parse_2k.c: In function ‘parse_type_2k’:
+parse_2k.c:46:16: warning: unused variable ‘l’ [-Wunused-variable]
+         short *l;
+                ^
+parse_2k.c:44:14: warning: unused variable ‘ii’ [-Wunused-variable]
+         int *ii;
+              ^
+parse_2k.c:63:28: warning: ‘ch_ptr1’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    (char *)malloc((ch_ptr2 - ch_ptr1 ) + 1)) == NULL)
+                            ^
+gcc  -I../Include -O -Wall   -c -o free_all.o free_all.c
+free_all.c: In function ‘free_all’:
+free_all.c:13:2: warning: implicit declaration of function ‘free_type11’ [-Wimplicit-function-declaration]
+  free_type11();
+  ^
+free_all.c:14:2: warning: implicit declaration of function ‘free_type12’ [-Wimplicit-function-declaration]
+  free_type12();
+  ^
+free_all.c:15:2: warning: implicit declaration of function ‘free_type30’ [-Wimplicit-function-declaration]
+  free_type30();
+  ^
+free_all.c:16:2: warning: implicit declaration of function ‘free_type31’ [-Wimplicit-function-declaration]
+  free_type31();
+  ^
+free_all.c:17:2: warning: implicit declaration of function ‘free_type32’ [-Wimplicit-function-declaration]
+  free_type32();
+  ^
+free_all.c:18:2: warning: implicit declaration of function ‘free_type33’ [-Wimplicit-function-declaration]
+  free_type33();
+  ^
+free_all.c:19:2: warning: implicit declaration of function ‘free_type34’ [-Wimplicit-function-declaration]
+  free_type34();
+  ^
+free_all.c:20:2: warning: implicit declaration of function ‘free_type35’ [-Wimplicit-function-declaration]
+  free_type35();
+  ^
+free_all.c:21:2: warning: implicit declaration of function ‘free_type41’ [-Wimplicit-function-declaration]
+  free_type41();
+  ^
+free_all.c:22:2: warning: implicit declaration of function ‘free_type42’ [-Wimplicit-function-declaration]
+  free_type42();
+  ^
+free_all.c:23:2: warning: implicit declaration of function ‘free_type43’ [-Wimplicit-function-declaration]
+  free_type43();
+  ^
+free_all.c:24:2: warning: implicit declaration of function ‘free_type44’ [-Wimplicit-function-declaration]
+  free_type44();
+  ^
+free_all.c:25:2: warning: implicit declaration of function ‘free_type45’ [-Wimplicit-function-declaration]
+  free_type45();
+  ^
+free_all.c:26:2: warning: implicit declaration of function ‘free_type46’ [-Wimplicit-function-declaration]
+  free_type46();
+  ^
+free_all.c:27:2: warning: implicit declaration of function ‘free_type47’ [-Wimplicit-function-declaration]
+  free_type47();
+  ^
+free_all.c:28:2: warning: implicit declaration of function ‘free_type48’ [-Wimplicit-function-declaration]
+  free_type48();
+  ^
+free_all.c:29:2: warning: implicit declaration of function ‘free_type50’ [-Wimplicit-function-declaration]
+  free_type50();
+  ^
+free_all.c:30:2: warning: implicit declaration of function ‘free_type70’ [-Wimplicit-function-declaration]
+  free_type70();
+  ^
+free_all.c:31:2: warning: implicit declaration of function ‘free_type71’ [-Wimplicit-function-declaration]
+  free_type71();
+  ^
+free_all.c:32:2: warning: implicit declaration of function ‘free_type72’ [-Wimplicit-function-declaration]
+  free_type72();
+  ^
+free_all.c:33:2: warning: implicit declaration of function ‘free_type73’ [-Wimplicit-function-declaration]
+  free_type73();
+  ^
+free_all.c:34:2: warning: implicit declaration of function ‘free_type74’ [-Wimplicit-function-declaration]
+  free_type74();
+  ^
+gcc  -I../Include -O -Wall   -c -o free_response.o free_response.c
+free_response.c: In function ‘free_response’:
+free_response.c:18:35: warning: implicit declaration of function ‘free_type53’ [-Wimplicit-function-declaration]
+   if (response->type == 'P')      free_type53 (response->ptr.type53);
+                                   ^
+free_response.c:19:35: warning: implicit declaration of function ‘free_type54’ [-Wimplicit-function-declaration]
+   else if (response->type == 'C') free_type54 (response->ptr.type54);
+                                   ^
+free_response.c:20:35: warning: implicit declaration of function ‘free_type55’ [-Wimplicit-function-declaration]
+   else if (response->type == 'L') free_type55 (response->ptr.type55);
+                                   ^
+free_response.c:21:35: warning: implicit declaration of function ‘free_type56’ [-Wimplicit-function-declaration]
+   else if (response->type == 'G') free_type56 (response->ptr.type56);
+                                   ^
+free_response.c:22:35: warning: implicit declaration of function ‘free_type57’ [-Wimplicit-function-declaration]
+   else if (response->type == 'D') free_type57 (response->ptr.type57);
+                                   ^
+free_response.c:23:35: warning: implicit declaration of function ‘free_type58’ [-Wimplicit-function-declaration]
+   else if (response->type == 'S') free_type58 (response->ptr.type58);
+                                   ^
+free_response.c:24:35: warning: implicit declaration of function ‘free_type60’ [-Wimplicit-function-declaration]
+   else if (response->type == 'R') free_type60 (response->ptr.type60);
+                                   ^
+free_response.c:25:35: warning: implicit declaration of function ‘free_type61’ [-Wimplicit-function-declaration]
+   else if (response->type == 'F') free_type61 (response->ptr.type61);
+                                   ^
+free_response.c:26:35: warning: implicit declaration of function ‘free_type62’ [-Wimplicit-function-declaration]
+   else if (response->type == 'O') free_type62 (response->ptr.type62);
+                                   ^
+gcc  -I../Include -O -Wall   -c -o free_11.o free_11.c
+free_11.c: In function ‘dump11’:
+free_11.c:48:26: warning: unused variable ‘t’ [-Wunused-variable]
+  struct type11 *type11, *t;
+                          ^
+gcc  -I../Include -O -Wall   -c -o free_12.o free_12.c
+gcc  -I../Include -O -Wall   -c -o free_30.o free_30.c
+gcc  -I../Include -O -Wall   -c -o free_31.o free_31.c
+gcc  -I../Include -O -Wall   -c -o free_32.o free_32.c
+gcc  -I../Include -O -Wall   -c -o free_33.o free_33.c
+gcc  -I../Include -O -Wall   -c -o free_34.o free_34.c
+gcc  -I../Include -O -Wall   -c -o free_35.o free_35.c
+gcc  -I../Include -O -Wall   -c -o free_41.o free_41.c
+free_41.c: In function ‘free_type41’:
+free_41.c:13:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;
+      ^
+gcc  -I../Include -O -Wall   -c -o free_42.o free_42.c
+free_42.c: In function ‘free_type42’:
+free_42.c:13:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;
+      ^
+gcc  -I../Include -O -Wall   -c -o free_43.o free_43.c
+gcc  -I../Include -O -Wall   -c -o free_44.o free_44.c
+free_44.c: In function ‘free_type44’:
+free_44.c:13:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;
+      ^
+gcc  -I../Include -O -Wall   -c -o free_45.o free_45.c
+gcc  -I../Include -O -Wall   -c -o free_46.o free_46.c
+gcc  -I../Include -O -Wall   -c -o free_47.o free_47.c
+gcc  -I../Include -O -Wall   -c -o free_48.o free_48.c
+gcc  -I../Include -O -Wall   -c -o free_50.o free_50.c
+free_50.c: In function ‘free_type50’:
+free_50.c:35:36: warning: implicit declaration of function ‘free_type51’ [-Wimplicit-function-declaration]
+   if (type50->type51_head != NULL) free_type51(type50->type51_head);
+                                    ^
+free_50.c:36:36: warning: implicit declaration of function ‘free_type52’ [-Wimplicit-function-declaration]
+   if (type50->type52_head != NULL) free_type52(type50->type52_head);
+                                    ^
+gcc  -I../Include -O -Wall   -c -o free_51.o free_51.c
+gcc  -I../Include -O -Wall   -c -o free_52.o free_52.c
+free_52.c: In function ‘free_type52’:
+free_52.c:39:3: warning: implicit declaration of function ‘free_response’ [-Wimplicit-function-declaration]
+   free_response(type52->response_head);
+   ^
+free_52.c:40:3: warning: implicit declaration of function ‘free_type59’ [-Wimplicit-function-declaration]
+   free_type59(type52->type59_head);
+   ^
+gcc  -I../Include -O -Wall   -c -o free_53.o free_53.c
+gcc  -I../Include -O -Wall   -c -o free_54.o free_54.c
+gcc  -I../Include -O -Wall   -c -o free_55.o free_55.c
+gcc  -I../Include -O -Wall   -c -o free_56.o free_56.c
+gcc  -I../Include -O -Wall   -c -o free_57.o free_57.c
+gcc  -I../Include -O -Wall   -c -o free_58.o free_58.c
+gcc  -I../Include -O -Wall   -c -o free_59.o free_59.c
+gcc  -I../Include -O -Wall   -c -o free_60.o free_60.c
+free_60.c: In function ‘free_type60’:
+free_60.c:13:9: warning: unused variable ‘ii’ [-Wunused-variable]
+  int i, ii;
+         ^
+gcc  -I../Include -O -Wall   -c -o free_61.o free_61.c
+gcc  -I../Include -O -Wall   -c -o free_62.o free_62.c
+gcc  -I../Include -O -Wall   -c -o free_70.o free_70.c
+gcc  -I../Include -O -Wall   -c -o free_71.o free_71.c
+gcc  -I../Include -O -Wall   -c -o free_72.o free_72.c
+gcc  -I../Include -O -Wall   -c -o free_73.o free_73.c
+gcc  -I../Include -O -Wall   -c -o free_74.o free_74.c
+gcc  -I../Include -O -Wall   -c -o free_2k.o free_2k.c
+gcc  -I../Include -O -Wall   -c -o prc_abrvd.o prc_abrvd.c
+gcc  -I../Include -O -Wall   -c -o prc_blank.o prc_blank.c
+gcc  -I../Include -O -Wall   -c -o prc_stnh.o prc_stnh.c
+prc_stnh.c: In function ‘process_stnh’:
+prc_stnh.c:101:5: warning: implicit declaration of function ‘reset_stn_chn_flags’ [-Wimplicit-function-declaration]
+     reset_stn_chn_flags();
+     ^
+prc_stnh.c:122:10: warning: implicit declaration of function ‘chk_network’ [-Wimplicit-function-declaration]
+     if (!chk_network(netcode))
+          ^
+prc_stnh.c:154:8: warning: implicit declaration of function ‘chk_channel’ [-Wimplicit-function-declaration]
+    if (chk_channel(wrkstr))
+        ^
+prc_stnh.c:162:38: warning: implicit declaration of function ‘chk_location’ [-Wimplicit-function-declaration]
+                                 if (!chk_location(wrkstr))
+                                      ^
+prc_stnh.c: In function ‘reset_stn_chn_flags’:
+prc_stnh.c:286:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+gcc  -I../Include -O -Wall   -c -o prc_timeh.o prc_timeh.c
+prc_timeh.c: In function ‘process_timeh’:
+prc_timeh.c:63:34: warning: implicit declaration of function ‘parse_type74’ [-Wimplicit-function-declaration]
+   else if (blockette_type == 74) parse_type74 (blockette);
+                                  ^
+gcc  -I../Include -O -Wall   -c -o prc_volh.o prc_volh.c
+prc_volh.c: In function ‘process_volh’:
+prc_volh.c:43:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i, l;
+      ^
+make[1]: Leaving directory '/home/cps/TCPS/PROGRAMS.330/IRIS/rdseedv5.3.slu/Parsers'
+cd Printers; make CFLAGS="-I../Include -O -Wall" all
+make[1]: Entering directory '/home/cps/TCPS/PROGRAMS.330/IRIS/rdseedv5.3.slu/Printers'
+gcc  -I../Include -O -Wall   -c -o pagetop.o pagetop.c
+In file included from pagetop.c:35:0:
+../Include/resp_defs.h:5:14: warning: ‘fld_pref’ defined but not used [-Wunused-variable]
+ static char *fld_pref="F";             /* used as field designator prefix */
+              ^
+gcc  -I../Include -O -Wall   -c -o print_abrvd.o print_abrvd.c
+print_abrvd.c: In function ‘print_abrvd’:
+print_abrvd.c:55:2: warning: implicit declaration of function ‘print_type41’ [-Wimplicit-function-declaration]
+  print_type41 ();
+  ^
+print_abrvd.c:56:2: warning: implicit declaration of function ‘print_type42’ [-Wimplicit-function-declaration]
+  print_type42 ();
+  ^
+print_abrvd.c:57:2: warning: implicit declaration of function ‘print_type43’ [-Wimplicit-function-declaration]
+  print_type43 ();
+  ^
+print_abrvd.c:58:2: warning: implicit declaration of function ‘print_type44’ [-Wimplicit-function-declaration]
+  print_type44 ();
+  ^
+print_abrvd.c:59:2: warning: implicit declaration of function ‘print_type45’ [-Wimplicit-function-declaration]
+  print_type45 ();
+  ^
+print_abrvd.c:60:2: warning: implicit declaration of function ‘print_type46’ [-Wimplicit-function-declaration]
+  print_type46 ();
+  ^
+print_abrvd.c:61:2: warning: implicit declaration of function ‘print_type47’ [-Wimplicit-function-declaration]
+  print_type47 ();
+  ^
+print_abrvd.c:62:2: warning: implicit declaration of function ‘print_type48’ [-Wimplicit-function-declaration]
+  print_type48 ();
+  ^
+In file included from print_abrvd.c:36:0:
+print_abrvd.c: At top level:
+../Include/resp_defs.h:5:14: warning: ‘fld_pref’ defined but not used [-Wunused-variable]
+ static char *fld_pref="F";             /* used as field designator prefix */
+              ^
+gcc  -I../Include -O -Wall   -c -o print_channel.o print_channel.c
+gcc  -I../Include -O -Wall   -c -o print_response.o print_response.c
+gcc  -I../Include -O -Wall   -c -o print_stnh.o print_stnh.c
+gcc  -I../Include -O -Wall   -c -o print_timeh.o print_timeh.c
+print_timeh.c: In function ‘print_timeh’:
+print_timeh.c:42:2: warning: implicit declaration of function ‘print_type74’ [-Wimplicit-function-declaration]
+  print_type74 ();
+  ^
+gcc  -I../Include -O -Wall   -c -o print_key.o print_key.c
+print_key.c: In function ‘print_ddl_key’:
+print_key.c:14:10: warning: unused variable ‘k’ [-Wunused-variable]
+  int i,j,k;
+          ^
+print_key.c:14:8: warning: unused variable ‘j’ [-Wunused-variable]
+  int i,j,k;
+        ^
+print_key.c:12:11: warning: unused variable ‘temp’ [-Wunused-variable]
+  char *p, temp[100];
+           ^
+print_key.c:12:8: warning: unused variable ‘p’ [-Wunused-variable]
+  char *p, temp[100];
+        ^
+print_key.c:211:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+gcc  -I../Include -O -Wall   -c -o print_10.o print_10.c
+gcc  -I../Include -O -Wall   -c -o print_11.o print_11.c
+gcc  -I../Include -O -Wall   -c -o print_12.o print_12.c
+gcc  -I../Include -O -Wall   -c -o print_30.o print_30.c
+gcc  -I../Include -O -Wall   -c -o print_31.o print_31.c
+print_31.c: In function ‘print_type31’:
+print_31.c:59:9: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+    else find_type34(outputfile,type31->units);
+         ^
+gcc  -I../Include -O -Wall   -c -o print_32.o print_32.c
+gcc  -I../Include -O -Wall   -c -o print_33.o print_33.c
+gcc  -I../Include -O -Wall   -c -o print_34.o print_34.c
+gcc  -I../Include -O -Wall   -c -o print_35.o print_35.c
+gcc  -I../Include -O -Wall   -c -o print_41.o print_41.c
+print_41.c: In function ‘print_type41’:
+print_41.c:64:4: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+    find_type34(outputfile, type41->input_units_code);
+    ^
+gcc  -I../Include -O -Wall   -c -o print_42.o print_42.c
+print_42.c: In function ‘print_type42’:
+print_42.c:74:4: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+    find_type34(outputfile, type42->input_units_code);
+    ^
+gcc  -I../Include -O -Wall   -c -o print_43.o print_43.c
+print_43.c: In function ‘print_type43’:
+print_43.c:64:4: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+    find_type34(outputfile, type43->input_units_code);
+    ^
+gcc  -I../Include -O -Wall   -c -o print_44.o print_44.c
+print_44.c: In function ‘print_type44’:
+print_44.c:64:4: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+    find_type34(outputfile, type44->input_units_code);
+    ^
+gcc  -I../Include -O -Wall   -c -o print_45.o print_45.c
+print_45.c: In function ‘print_type45’:
+print_45.c:59:4: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+    find_type34(outputfile, type45->input_units_code);
+    ^
+gcc  -I../Include -O -Wall   -c -o print_46.o print_46.c
+print_46.c: In function ‘print_type46’:
+print_46.c:59:4: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+    find_type34(outputfile, type46->input_units_code);
+    ^
+gcc  -I../Include -O -Wall   -c -o print_47.o print_47.c
+print_47.c: In function ‘print_type47’:
+print_47.c:36:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;          /* counter */
+      ^
+gcc  -I../Include -O -Wall   -c -o print_48.o print_48.c
+gcc  -I../Include -O -Wall   -c -o print_50.o print_50.c
+print_50.c: In function ‘print_type50’:
+print_50.c:68:2: warning: implicit declaration of function ‘find_type33’ [-Wimplicit-function-declaration]
+  find_type33(outputfile, current_station->owner_code);
+  ^
+gcc  -I../Include -O -Wall   -c -o print_51.o print_51.c
+print_51.c: In function ‘print_type51’:
+print_51.c:103:3: warning: implicit declaration of function ‘find_type31’ [-Wimplicit-function-declaration]
+   find_type31(outputfile, type51->comment_code);
+   ^
+gcc  -I../Include -O -Wall   -c -o print_52.o print_52.c
+print_52.c: In function ‘print_type52’:
+print_52.c:63:2: warning: implicit declaration of function ‘find_type33’ [-Wimplicit-function-declaration]
+  find_type33(outputfile,type52->instrument_code);
+  ^
+print_52.c:69:2: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+  find_type34(outputfile,type52->signal_units_code);
+  ^
+print_52.c:88:2: warning: implicit declaration of function ‘find_type30’ [-Wimplicit-function-declaration]
+  find_type30(outputfile, type52->format_code);
+  ^
+gcc  -I../Include -O -Wall   -c -o print_53.o print_53.c
+print_53.c: In function ‘print_type53’:
+print_53.c:65:3: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+   find_type34(fp,type53->input_units_code);
+   ^
+gcc  -I../Include -O -Wall   -c -o print_54.o print_54.c
+print_54.c: In function ‘print_type54’:
+print_54.c:59:3: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+   find_type34(fp,type54->input_units_code);
+   ^
+gcc  -I../Include -O -Wall   -c -o print_55.o print_55.c
+print_55.c: In function ‘print_type55’:
+print_55.c:57:3: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+   find_type34(fp,type55->input_units_code);
+   ^
+gcc  -I../Include -O -Wall   -c -o print_56.o print_56.c
+print_56.c: In function ‘print_type56’:
+print_56.c:57:3: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+   find_type34(fp,type56->input_units_code);
+   ^
+gcc  -I../Include -O -Wall   -c -o print_57.o print_57.c
+print_57.c: In function ‘print_type57’:
+print_57.c:36:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;          /* counter */
+      ^
+print_57.c: In function ‘old_print_type57’:
+print_57.c:72:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;          /* counter */
+      ^
+gcc  -I../Include -O -Wall   -c -o print_58.o print_58.c
+gcc  -I../Include -O -Wall   -c -o print_59.o print_59.c
+print_59.c: In function ‘print_type59’:
+print_59.c:96:3: warning: implicit declaration of function ‘find_type31’ [-Wimplicit-function-declaration]
+   find_type31(outputfile, type59->comment_code);
+   ^
+gcc  -I../Include -O -Wall   -c -o print_60.o print_60.c
+print_60.c: In function ‘print_type60’:
+print_60.c:62:9: warning: implicit declaration of function ‘find_type41’ [-Wimplicit-function-declaration]
+     if (find_type41(fp,type60->stage[i].response[j].reference));
+         ^
+print_60.c:63:14: warning: implicit declaration of function ‘find_type42’ [-Wimplicit-function-declaration]
+     else if (find_type42(fp,type60->stage[i].response[j].reference));
+              ^
+print_60.c:64:14: warning: implicit declaration of function ‘find_type43’ [-Wimplicit-function-declaration]
+     else if (find_type43(fp,type60->stage[i].response[j].reference));
+              ^
+print_60.c:65:14: warning: implicit declaration of function ‘find_type44’ [-Wimplicit-function-declaration]
+     else if (find_type44(fp,type60->stage[i].response[j].reference));
+              ^
+print_60.c:66:14: warning: implicit declaration of function ‘find_type45’ [-Wimplicit-function-declaration]
+     else if (find_type45(fp,type60->stage[i].response[j].reference));
+              ^
+print_60.c:67:14: warning: implicit declaration of function ‘find_type46’ [-Wimplicit-function-declaration]
+     else if (find_type46(fp,type60->stage[i].response[j].reference));
+              ^
+print_60.c:68:14: warning: implicit declaration of function ‘find_type47’ [-Wimplicit-function-declaration]
+     else if (find_type47(fp,type60->stage[i].response[j].reference));
+              ^
+print_60.c:70:14: warning: implicit declaration of function ‘find_type48’ [-Wimplicit-function-declaration]
+     else if (find_type48(fp,type60->stage[i].response[j].reference));
+              ^
+print_60.c: In function ‘old_print_type60’:
+print_60.c:113:9: warning: implicit declaration of function ‘old_find_type41’ [-Wimplicit-function-declaration]
+     if (old_find_type41(fp,type60->stage[i].response[j].reference));
+         ^
+print_60.c:114:14: warning: implicit declaration of function ‘old_find_type42’ [-Wimplicit-function-declaration]
+     else if (old_find_type42(fp,type60->stage[i].response[j].reference));
+              ^
+print_60.c:115:14: warning: implicit declaration of function ‘old_find_type43’ [-Wimplicit-function-declaration]
+     else if (old_find_type43(fp,type60->stage[i].response[j].reference));
+              ^
+print_60.c:116:14: warning: implicit declaration of function ‘old_find_type44’ [-Wimplicit-function-declaration]
+     else if (old_find_type44(fp,type60->stage[i].response[j].reference));
+              ^
+print_60.c:117:14: warning: implicit declaration of function ‘old_find_type45’ [-Wimplicit-function-declaration]
+     else if (old_find_type45(fp,type60->stage[i].response[j].reference));
+              ^
+print_60.c:118:14: warning: implicit declaration of function ‘old_find_type46’ [-Wimplicit-function-declaration]
+     else if (old_find_type46(fp,type60->stage[i].response[j].reference));
+              ^
+print_60.c:119:14: warning: implicit declaration of function ‘old_find_type47’ [-Wimplicit-function-declaration]
+     else if (old_find_type47(fp,type60->stage[i].response[j].reference));
+              ^
+print_60.c:121:14: warning: implicit declaration of function ‘old_find_type48’ [-Wimplicit-function-declaration]
+     else if (old_find_type48(fp,type60->stage[i].response[j].reference));
+              ^
+gcc  -I../Include -O -Wall   -c -o print_61.o print_61.c
+print_61.c: In function ‘print_type61’:
+print_61.c:65:3: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+   find_type34(fp,type61->input_units_code);
+   ^
+gcc  -I../Include -O -Wall   -c -o print_62.o print_62.c
+print_62.c: In function ‘print_type62’:
+print_62.c:66:3: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+   find_type34(fp, type62->input_units_code);
+   ^
+gcc  -I../Include -O -Wall   -c -o print_70.o print_70.c
+gcc  -I../Include -O -Wall   -c -o print_71.o print_71.c
+print_71.c: In function ‘print_type71’:
+print_71.c:57:4: warning: implicit declaration of function ‘find_type32’ [-Wimplicit-function-declaration]
+    find_type32(outputfile,type71->source_code);
+    ^
+gcc  -I../Include -O -Wall   -c -o print_72.o print_72.c
+print_72.c: In function ‘print_type72’:
+print_72.c:68:5: warning: implicit declaration of function ‘find_type32’ [-Wimplicit-function-declaration]
+     find_type32(outputfile,type72->source_code);
+     ^
+gcc  -I../Include -O -Wall   -c -o print_73.o print_73.c
+gcc  -I../Include -O -Wall   -c -o print_74.o print_74.c
+print_74.c: In function ‘print_type74’:
+print_74.c:36:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;          /* counter */
+      ^
+gcc  -I../Include -O -Wall   -c -o find_30.o find_30.c
+In file included from find_30.c:31:0:
+../Include/resp_defs.h:4:14: warning: ‘com_strt’ defined but not used [-Wunused-variable]
+ static char *com_strt="#\t\t";  /* used to pad comments for alignment */
+              ^
+gcc  -I../Include -O -Wall   -c -o find_31.o find_31.c
+find_31.c: In function ‘find_type31’:
+find_31.c:46:5: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+     find_type34(fp, type31->units);
+     ^
+gcc  -I../Include -O -Wall   -c -o find_32.o find_32.c
+gcc  -I../Include -O -Wall   -c -o find_33.o find_33.c
+gcc  -I../Include -O -Wall   -c -o find_34.o find_34.c
+gcc  -I../Include -O -Wall   -c -o find_41.o find_41.c
+find_41.c:34:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ find_type41(fp, code)
+ ^
+find_41.c: In function ‘find_type41’:
+find_41.c:63:4: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+    find_type34(fp, type41->input_units_code);
+    ^
+find_41.c: At top level:
+find_41.c:89:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ old_find_type41(fp, code)
+ ^
+gcc  -I../Include -O -Wall   -c -o find_42.o find_42.c
+find_42.c:30:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ find_type42(fp, code)
+ ^
+find_42.c: In function ‘find_type42’:
+find_42.c:70:4: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+    find_type34(fp, type42->input_units_code);
+    ^
+find_42.c: At top level:
+find_42.c:127:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ old_find_type42(fp, code)
+ ^
+gcc  -I../Include -O -Wall   -c -o find_43.o find_43.c
+find_43.c: In function ‘find_type43’:
+find_43.c:68:4: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+    find_type34(fp,type43->input_units_code);
+    ^
+gcc  -I../Include -O -Wall   -c -o find_44.o find_44.c
+find_44.c: In function ‘find_type44’:
+find_44.c:63:4: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+    find_type34(fp,type44->input_units_code);
+    ^
+gcc  -I../Include -O -Wall   -c -o find_45.o find_45.c
+find_45.c: In function ‘find_type45’:
+find_45.c:56:4: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+    find_type34(fp,type45->input_units_code);
+    ^
+gcc  -I../Include -O -Wall   -c -o find_46.o find_46.c
+find_46.c: In function ‘find_type46’:
+find_46.c:56:4: warning: implicit declaration of function ‘find_type34’ [-Wimplicit-function-declaration]
+    find_type34(fp,type46->input_units_code);
+    ^
+gcc  -I../Include -O -Wall   -c -o find_47.o find_47.c
+find_47.c: In function ‘find_type47’:
+find_47.c:37:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;          /* counter */
+      ^
+find_47.c: In function ‘old_find_type47’:
+find_47.c:77:6: warning: unused variable ‘i’ [-Wunused-variable]
+  int i;          /* counter */
+      ^
+gcc  -I../Include -O -Wall   -c -o find_48.o find_48.c
+gcc  -I../Include -O -Wall   -c -o print_volh.o print_volh.c
+make[1]: Leaving directory '/home/cps/TCPS/PROGRAMS.330/IRIS/rdseedv5.3.slu/Printers'
+cd Utilities; make CFLAGS="-I../Include -O -Wall" all
+make[1]: Entering directory '/home/cps/TCPS/PROGRAMS.330/IRIS/rdseedv5.3.slu/Utilities'
+gcc  -I../Include -O -Wall   -c -o alloc_linklist_element.o alloc_linklist_element.c
+gcc  -I../Include -O -Wall   -c -o allocation_error.o allocation_error.c
+gcc  -I../Include -O -Wall   -c -o cmdlineproc.o cmdlineproc.c
+cmdlineproc.c: In function ‘cmdlineproc’:
+cmdlineproc.c:176:6: warning: unused variable ‘l’ [-Wunused-variable]
+  int l;     /* miscellaneous use counter */
+      ^
+In file included from cmdlineproc.c:152:0:
+cmdlineproc.c: In function ‘error_invalid_opt’:
+../Include/rdseed.h:93:18: warning: implicit declaration of function ‘save_myfprintf’ [-Wimplicit-function-declaration]
+ #define fprintf  save_myfprintf
+                  ^
+cmdlineproc.c:329:2: note: in expansion of macro ‘fprintf’
+  fprintf (stderr, "ERROR [command line]:  ");
+  ^
+gcc  -I../Include -O -Wall   -c -o find_wordorder.o find_wordorder.c
+find_wordorder.c: In function ‘find_wordorder’:
+find_wordorder.c:63:25: warning: "/*" within comment [-Wcomment]
+  char wordorder[4+1];   /* string for word order */
+                         ^
+find_wordorder.c:117:6: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wparentheses]
+   if (mini_hdr) 
+      ^
+find_wordorder.c: In function ‘get_word_order’:
+find_wordorder.c:158:7: warning: unused variable ‘wordorder’ [-Wunused-variable]
+  char wordorder[4+1];   /* string for word order */
+       ^
+gcc  -I../Include -O -Wall   -c -o memncpy.o memncpy.c
+memncpy.c: In function ‘memncpy’:
+memncpy.c:47:6: warning: unused variable ‘ix’ [-Wunused-variable]
+  int ix;
+      ^
+gcc  -I../Include -O -Wall   -c -o parse_double.o parse_double.c
+gcc  -I../Include -O -Wall   -c -o parse_int.o parse_int.c
+gcc  -I../Include -O -Wall   -c -o parse_long.o parse_long.c
+gcc  -I../Include -O -Wall   -c -o parse_nchar.o parse_nchar.c
+gcc  -I../Include -O -Wall   -c -o parse_varlstr.o parse_varlstr.c
+gcc  -I../Include -O -Wall   -c -o read_blockette.o read_blockette.c
+read_blockette.c: In function ‘read_blockette’:
+read_blockette.c:56:25: warning: unused variable ‘hdr’ [-Wunused-variable]
+  struct input_data_hdr *hdr;
+                         ^
+read_blockette.c:55:6: warning: unused variable ‘eor’ [-Wunused-variable]
+  int eor = 0;
+      ^
+gcc  -I../Include -O -Wall   -c -o read_logical_record.o read_logical_record.c
+gcc  -I../Include -O -Wall   -c -o split.o split.c
+In file included from split.c:5:0:
+split.c: In function ‘split’:
+../Include/rdseed.h:93:18: warning: implicit declaration of function ‘save_myfprintf’ [-Wimplicit-function-declaration]
+ #define fprintf  save_myfprintf
+                  ^
+split.c:38:17: note: in expansion of macro ‘fprintf’
+                 fprintf(stderr, "split(): too big to split - out of memory - string= %s\n", s);
+                 ^
+split.c:50:6: warning: implicit declaration of function ‘count_chars’ [-Wimplicit-function-declaration]
+  n = count_chars(wrkstr, fs) + 1;
+      ^
+gcc  -I../Include -O -Wall   -c -o swap_2byte.o swap_2byte.c
+gcc  -I../Include -O -Wall   -c -o swap_4byte.o swap_4byte.c
+gcc  -I../Include -O -Wall   -c -o timeadd.o timeadd.c
+gcc  -I../Include -O -Wall   -c -o timeadd_double.o timeadd_double.c
+gcc  -I../Include -O -Wall   -c -o timeaddphase.o timeaddphase.c
+gcc  -I../Include -O -Wall   -c -o timedif.o timedif.c
+timedif.c: In function ‘timedif’:
+timedif.c:57:31: warning: unused variable ‘dif’ [-Wunused-variable]
+  double time1_sec, time2_sec, dif;
+                               ^
+gcc  -I../Include -O -Wall   -c -o timecvt.o timecvt.c
+timecvt.c: In function ‘phasecvt’:
+timecvt.c:230:7: warning: implicit declaration of function ‘isdigit’ [-Wimplicit-function-declaration]
+   if (isdigit(*p)) return;
+       ^
+timecvt.c:213:12: warning: unused variable ‘i’ [-Wunused-variable]
+  int sign, i;
+            ^
+gcc  -I../Include -O -Wall   -c -o timeprt.o timeprt.c
+timeprt.c: In function ‘timeprt’:
+timeprt.c:58:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+gcc  -I../Include -O -Wall   -c -o timecmp.o timecmp.c
+gcc  -I../Include -O -Wall   -c -o timetol.o timetol.c
+timetol.c: In function ‘timetol’:
+timetol.c:64:3: warning: ‘return’ with no value, in function returning non-void
+   return;
+   ^
+gcc  -I../Include -O -Wall   -c -o timeqc.o timeqc.c
+gcc  -I../Include -O -Wall   -c -o timepch.o timepch.c
+gcc  -I../Include -O -Wall   -c -o log_errors.o log_errors.c
+log_errors.c: In function ‘stderr_to_file’:
+log_errors.c:141:3: warning: implicit declaration of function ‘add_header’ [-Wimplicit-function-declaration]
+   add_header(fptr);
+   ^
+log_errors.c: In function ‘init_error_file’:
+log_errors.c:167:7: warning: implicit declaration of function ‘is_writable’ [-Wimplicit-function-declaration]
+  if (!is_writable("."))
+       ^
+log_errors.c: In function ‘stderr_to_file’:
+log_errors.c:133:2: warning: ignoring return value of ‘getcwd’, declared with attribute warn_unused_result [-Wunused-result]
+  getcwd(now_dir, MAXPATHLEN);
+  ^
+log_errors.c:136:3: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+   chdir(Rdseed_Cwd);
+   ^
+log_errors.c:150:17: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+                 chdir(now_dir);
+                 ^
+gcc  -I../Include -O -Wall   -c -o strlst.o strlst.c
+gcc  -I../Include -O -Wall   -c -o get_date.o get_date.c
+gcc  -I../Include -O -Wall   -c -o delaz.o delaz.c
+delaz.c: In function ‘midpoint’:
+delaz.c:144:21: warning: unused variable ‘baz’ [-Wunused-variable]
+     double del, az, baz;
+                     ^
+delaz.c:142:30: warning: variable ‘slon’ set but not used [-Wunused-but-set-variable]
+     double qlat, qlon, slat, slon;
+                              ^
+delaz.c:142:24: warning: variable ‘slat’ set but not used [-Wunused-but-set-variable]
+     double qlat, qlon, slat, slon;
+                        ^
+make[1]: Leaving directory '/home/cps/TCPS/PROGRAMS.330/IRIS/rdseedv5.3.slu/Utilities'
+cd Snoop; make CFLAGS="-I../Include -O -Wall" all
+make[1]: Entering directory '/home/cps/TCPS/PROGRAMS.330/IRIS/rdseedv5.3.slu/Snoop'
+gcc  -I../Include -O -Wall   -c -o times_data.o times_data.c
+times_data.c: In function ‘times_data’:
+times_data.c:173:6: warning: implicit declaration of function ‘trim’ [-Wimplicit-function-declaration]
+      trim(that_location);
+      ^
+times_data.c:261:26: warning: implicit declaration of function ‘blockette_swap’ [-Wimplicit-function-declaration]
+                          blockette_swap(input_data_ptr +
+                          ^
+times_data.c:361:4: warning: implicit declaration of function ‘timecvt’ [-Wimplicit-function-declaration]
+    timecvt(&effective_start, p_station->start);
+    ^
+times_data.c:394:8: warning: implicit declaration of function ‘timeprt’ [-Wimplicit-function-declaration]
+        timeprt(this_time);
+        ^
+times_data.c:429:8: warning: implicit declaration of function ‘timetol’ [-Wimplicit-function-declaration]
+    if (timetol (newtime, this_time, last_nsamples, last_sample_rate) == 0)
+        ^
+times_data.c:492:3: warning: implicit declaration of function ‘parse_type100’ [-Wimplicit-function-declaration]
+   parse_type100(input_data_ptr, &last_sample_rate);
+   ^
+times_data.c:64:24: warning: variable ‘p’ set but not used [-Wunused-but-set-variable]
+  struct data_blk_1000 *p;
+                        ^
+times_data.c:57:5: warning: unused variable ‘flag’ [-Wunused-variable]
+ int flag = 0;
+     ^
+make[1]: Leaving directory '/home/cps/TCPS/PROGRAMS.330/IRIS/rdseedv5.3.slu/Snoop'
+gcc  -O -Wall -o rdseed Main/ah_resp.o Main/output_data.o Main/output_sac.o Main/alt_response.o Main/output_LOG.o Main/output_ah.o     Main/output_mini.o    Main/rdseed.o Main/output_simple.o Main/output_css.o    Main/output_resp.o    Main/time_span_out.o Main/steim.o Main/output_seed.o Main/output_event_info.o Main/summary.o Main/output_segy.o Main/output_stn_chn_comments.o Main/output_b2k.o Main/atc.o Ah/ioroutin.o Decoders/convert_seedhdr.o Decoders/decode_echery.o Decoders/decode_graef.o Decoders/decode_rstn.o Decoders/decode_32bit.o Decoders/decode_16bit.o Decoders/decode_ieeefloat.o Decoders/decode_ieeedouble.o Decoders/decode_asro.o Decoders/decode_cdsn.o Decoders/decode_dwwssn.o Decoders/decode_sro.o Decoders/decode_steim.o Decoders/decode_geoscope.o Decoders/decode_ddl.o Decoders/decode_steim2.o Decoders/init_data_hdr.o Decoders/process_time_span.o Decoders/process_event_requests.o Decoders/process_data.o Decoders/decode_usnsn.o Parsers/get_response.o Parsers/parse_key.o Parsers/parse_10.o Parsers/parse_11.o Parsers/parse_12.o Parsers/parse_30.o Parsers/parse_31.o Parsers/parse_32.o Parsers/parse_33.o Parsers/parse_34.o Parsers/parse_35.o Parsers/parse_41.o Parsers/parse_42.o Parsers/parse_43.o Parsers/parse_44.o Parsers/parse_45.o Parsers/parse_46.o Parsers/parse_47.o Parsers/parse_48.o Parsers/parse_50.o Parsers/parse_51.o Parsers/parse_52.o Parsers/parse_53.o Parsers/parse_54.o Parsers/parse_55.o Parsers/parse_56.o Parsers/parse_57.o Parsers/parse_58.o Parsers/parse_59.o Parsers/parse_60.o Parsers/parse_61.o Parsers/parse_62.o Parsers/parse_70.o Parsers/parse_71.o Parsers/parse_72.o Parsers/parse_73.o Parsers/parse_74.o Parsers/parse_100.o Parsers/parse_2k.o Parsers/free_all.o Parsers/free_response.o Parsers/free_11.o Parsers/free_12.o Parsers/free_30.o Parsers/free_31.o Parsers/free_32.o Parsers/free_33.o Parsers/free_34.o Parsers/free_35.o Parsers/free_41.o Parsers/free_42.o Parsers/free_43.o Parsers/free_44.o Parsers/free_45.o Parsers/free_46.o Parsers/free_47.o Parsers/free_48.o Parsers/free_50.o Parsers/free_51.o Parsers/free_52.o Parsers/free_53.o Parsers/free_54.o Parsers/free_55.o Parsers/free_56.o Parsers/free_57.o Parsers/free_58.o Parsers/free_59.o Parsers/free_60.o Parsers/free_61.o Parsers/free_62.o Parsers/free_70.o Parsers/free_71.o Parsers/free_72.o Parsers/free_73.o Parsers/free_74.o Parsers/free_2k.o Parsers/prc_abrvd.o Parsers/prc_blank.o Parsers/prc_stnh.o Parsers/prc_timeh.o Parsers/prc_volh.o Printers/pagetop.o Printers/print_abrvd.o Printers/print_channel.o Printers/print_response.o Printers/print_stnh.o Printers/print_timeh.o Printers/print_key.o Printers/print_10.o Printers/print_11.o Printers/print_12.o Printers/print_30.o Printers/print_31.o Printers/print_32.o Printers/print_33.o Printers/print_34.o Printers/print_35.o Printers/print_41.o Printers/print_42.o Printers/print_43.o Printers/print_44.o Printers/print_45.o Printers/print_46.o Printers/print_47.o Printers/print_48.o Printers/print_50.o Printers/print_51.o Printers/print_52.o Printers/print_53.o Printers/print_54.o Printers/print_55.o Printers/print_56.o Printers/print_57.o Printers/print_58.o Printers/print_59.o Printers/print_60.o Printers/print_61.o Printers/print_62.o Printers/print_70.o Printers/print_71.o Printers/print_72.o Printers/print_73.o Printers/print_74.o Printers/find_30.o Printers/find_31.o Printers/find_32.o Printers/find_33.o Printers/find_34.o Printers/find_41.o Printers/find_42.o Printers/find_43.o Printers/find_44.o Printers/find_45.o Printers/find_46.o Printers/find_47.o Printers/find_48.o Printers/print_volh.o Utilities/alloc_linklist_element.o Utilities/allocation_error.o Utilities/cmdlineproc.o Utilities/find_wordorder.o Utilities/memncpy.o Utilities/parse_double.o Utilities/parse_int.o Utilities/parse_long.o Utilities/parse_nchar.o Utilities/parse_varlstr.o Utilities/read_blockette.o Utilities/read_logical_record.o Utilities/split.o Utilities/swap_2byte.o Utilities/swap_4byte.o Utilities/timeadd.o Utilities/timeadd_double.o Utilities/timeaddphase.o Utilities/timedif.o Utilities/timecvt.o Utilities/timeprt.o Utilities/timecmp.o Utilities/timetol.o Utilities/timeqc.o Utilities/timepch.o Utilities/log_errors.o Utilities/strlst.o Utilities/get_date.o Utilities/delaz.o Snoop/times_data.o -lm -lc 

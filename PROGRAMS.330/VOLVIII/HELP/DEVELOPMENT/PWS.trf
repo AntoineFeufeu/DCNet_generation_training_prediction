@@ -1,0 +1,26 @@
+.de BR
+.in 0
+.in +8n
+.ti -5n
+..
+.Th PWS
+.S2 SUMMARY:
+Phase Weighted Stack
+
+PWS [option]
+
+where options is [ Nu nu_value] 
+.S2 INPUT:
+.BR
+Nu       : Exponent value in the range [0,1]
+
+.S2 DESCRIPTION:
+This implements a phase weighted stack of Schimmel. The result is a normalized stack. If nu_value = 0.0, this is just an ordinary stack; If nu_value = 1, then this is a full phase-weighted stack. All traces are stacked in absolute time and must have the same DELTA and NPTS.
+
+The default output will be the filename of the first file with  .pws  appended.
+.S2 EXAMPLES:
+
+.S2 DEFAULT:
+PWS NU 1
+
+.S2 "SEE ALSO":

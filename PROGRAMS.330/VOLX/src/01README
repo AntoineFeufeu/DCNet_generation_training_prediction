@@ -1,0 +1,61 @@
+MASTER LIST OF FILE USAGE - 23 NOV 2002
+
+tmpsrfi.00	data	joint96	jntpre96	rftn96	rftnpr96	rftnpv96
+			srfpre96	srfphv96	surf96
+tmpsrfi.01	data	joint96	modls		rftn96	samat	jsamat
+tmpsrfi.02	ASCII	modls	srfphr96
+tmpsrfi.03	data	jntpre96	srfdis96	srfpre96
+tmpsrfi.04	data	joint96	jntpre96	jsamat	samat	srfphv96
+			srfpre9	surf966
+tmpsrfi.05      data    srfdrl96        srfdrr96
+tmpsrfi.06	data	srfdis96	srfdrl96
+tmpsrfi.07	data	srfdis96	srfdrr96
+tmpsrfi.08	data	joint96	jsamat	rftn96	srfdrl96	srfdrr96
+			srfphv96	surf96	samat	
+tmpsrfi.09	data	jamat	ramat	samat	srfinv96	srfdrl96
+			srddrr96
+tmpsrfi.10	data	modls		srfinv96
+tmpsrfi.11	data	modls		srfinv96
+tmpsrfi.12	data	jntpre96	joint96	jramat	ramat	rftn96	rftnpr96
+
+tmpsrfi.14	data	joint96	modls	surf96
+tmpsrfi.15	ASCII	jntpre96	rftndr96	rftnpr96
+tmpsrfi.16	ASCII	joint96	rftn96	rftndr96	surf96
+tmpsrfi.17	ASCII	jntpre96	joint96	jramat	jsamat	modls
+			ramat	rftn96	rftndr96	rftnpr96	rftnpv96
+			samat	srfdis96	srfphv96	srfpre96	surf96
+tmpsrfi.18	data	jramat	ramat	rftndr96	rftnpv96
+
+tmpsrfi.00      Control parameters gttmp0 and puttmp0
+tmpsrfi.01      Temporary storage file for updating tmpsrfi.12
+                 ddupdt and wcupdt
+tmpsrfi.02     a file used with srfphv96 to plot original and current model and dispersion
+tmpsrfi.03	used for calculation of theoretical values
+tmpsrfi.04	weights followed by lines of observations of distpersion
+tmpsrfi.05	srfdrl96  CUG
+tmpsrfi.06	Love phase velocity dispersion
+tmpsrfi.07	Rayleigh phase velocity dispersion
+tmpsrfi.08	srfdrr96 CUG
+tmpsrfi.09      merged dispersion output from srfdrr96.f
+                also is a different files containing the rows of the equations inverted
+		by surfinv96
+tmpsrfi.10	used for SVD solution
+tmpsrfi.11	used for resolution matrix
+
+tmpsrfi.12	nd,m
+		(dd(i),i=1,m+m)
+		(wc(i),i=1,m+m)
+		note ddupdt makes dd(ival+m) = dd(iavl) which would force P and S to behave the same - NO!
+                dd is the value of the weight
+                wc is a logical -if 0 no smoothing if 1 smoothing
+tmpsrfi.14	temporary file used to construct the resolution matrix
+tmpsrfi.15	information about the receiver function traces
+tmpsrfi.16	simple control file
+		invdep,twnmin,twnmax,idtwo
+tmpsrfi.17	current velocity model
+tmpsrfi.18	receiver function partial derivative
+tmpmrgr.9       output of jramat and jamat, ramat, samat
+tmpmrgs.9       output of jramat and jamat, ramat, samat
+
+tmpsrfi.20	travel time observations
+tmpsrfi.21	observations and partials

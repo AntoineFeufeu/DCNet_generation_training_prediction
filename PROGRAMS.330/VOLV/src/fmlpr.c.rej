@@ -1,0 +1,20 @@
+--- sdr_to_mij.c
++++ sdr_to_mij.c
+@@ -4,4 +4,3 @@
+ 
+-sdr_to_mij(s,d,r,m)
+-float s,d,r,m[3][3];
++void sdr_to_mij( float s, float d, float r, float m[3][3] )
+ {
+@@ -38,4 +37,3 @@
+ 
+-ar_to_hrv_mij(m)
+-float m[3][3];
++void ar_to_hrv_mij( float m[3][3] )
+ {
+@@ -63,4 +61,3 @@
+ 
+-hrv_to_ar_mij(m)
+-float m[3][3];
++void hrv_to_ar_mij( float m[3][3] )
+ {

@@ -462,15 +462,15 @@ absorbleft                      = .true.
  nbregions                       = 10 ############################        # then set below the different regions and model number for each region
 # format of each line: nxmin nxmax nzmin nzmax material_number
  1 90 1 2 1
- 1 90 3 7 1
- 1 90 8 12 2
- 1 90 13 17 3
- 1 90 18 22 4
- 1 90 23 27 5
- 1 90 28 32 6
- 1 90 33 37 7
- 1 90 38 42 8
- 1 90 43 47 9
+ 1 90 3 8 1
+ 1 90 9 14 2
+ 1 90 15 20 3
+ 1 90 21 26 4
+ 1 90 27 32 5
+ 1 90 33 38 6
+ 1 90 39 44 7
+ 1 90 45 50 8
+ 1 90 51 56 9
 ###############
 ##########################
 ##########################

@@ -1,0 +1,8 @@
+05 SEP 2015  BACKGROUND
+	note I use black for the axes and I plot inside the box. So if the 
+	color is 1, e.g., black, then I do not see the tics
+	If the color is 2, then I do not see the first traces if I use color rainbow
+	So must be careful in the newpen calls when plotting
+
+for psppk smooth option , we must actually form the y array smoothed
+before outputting everything

@@ -1,0 +1,100 @@
+
+shallow96
+	shalpre96  creates shobs.d
+
+shobs.d:
+  0.00499999989  0.00499999989  0.  0.00499999989  0.
+    1    0    0    0    1    1    1    0    1    0
+start.mod                                                                       
+nnall.dsp
+time.dat
+
+
+ttinv96
+	ttinvpr96  creates tobs.d
+
+tobs.d:
+    1    0    0    0    1    1    1    0    1    0
+start.mod                                                                       
+time.dat
+
+
+The format of the time.dat file is
+
+FILE_NAME OF TRAVEL TIME FILES each of which has entries such as
+
+TYPE DISTANCE  TIME ERROR EVDP(km) RECDEP(km)
+where
+TYPE is P S SV SH
+DISTACNE in km
+TIME in sec
+ERROR in sec
+EVDP in km
+RECDEP in km
+
+---------
+In the ttinv96 and the shallow96 programs the internal variables for the inversion will change
+For surf96, rftn96 (not used) and joint96, the inversion was for Vs and Qs^-1
+
+For the ttinv96 and the shallow96 the inversion will be for Vp and for Vs independently
+This will change the meaning of the weights
+
+---------------------
+Look at VOLIV/src/srfpre96.f at subroutine getdsp
+
+This is a routine that converts human input to the parameters required by the program
+Thus the human dispersion line is
+
+FILE TYPE CUG TX PER VAL  DVAL
+SURF96 L C T     0    1.0000        3.2085       0.10000E-02
+SURF96 L U T     0    1.0000        2.9010       0.10000E-02
+SURF96 L G T     0    1.0000       0.41043E-02   0.10000E-06
+
+The subroutine  getdsp read this and then outputs to the program file on unit=8, e.g., tmpsrfi.12
+Note that getdsp permits lower case as well as upper case
+
+We need a subroutine gettim
+The output will be on file tmpsrfi.20
+
+1 10.500000 1.950000 0.5 0.0 0.0
+
+Where
+0 = P
+1 = SV
+2 = SH
+3 = S
+
+We will use the lgstr, getblnk
+
+subroutine gettim ( time.dat, ntobs)
+
+ntobs = 0
+open time.dat
+open the tmpsrfi.20
+for each file name in time.dat
+   open the file name
+   then read each line
+       write one line to tmpsrfi.20
+       ntobs = ntobs + 1
+   close the file name
+close time.dat
+close tmpsrfi.20
+return
+    
+
+
+--
+At the upper level
+
+    call gettim (time.dat, ntobs)
+------------------------
+change ttinvdr96 to recognize 1 2 3 for S
+
+----------
+lstinv needs more values for shallow
+tmpsrfi.02 needs an oa(i) to complement the ob(i)
+
+----------
+in ssamat and stamat set up P and S rows properly
+
+in  shamat why is there a close(1) but not and open(1)? is this from shallow96?

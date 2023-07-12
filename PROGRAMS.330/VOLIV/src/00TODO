@@ -1,0 +1,4 @@
+Ensure that gammas are to the same scale
+
+Also when plotting depth profile with refdep != 0
+indicatge the reference depth with a tic

@@ -1,0 +1,7 @@
+cd PROGRAMS.330/
+cd PROJET/
+PATH=$PATH:/home/antoinefeufeu/PROGRAMS.330/bin
+export PATH
+./XDmod_28-layers.dep
+gnuplot
+load "28layers.roland.plot"
